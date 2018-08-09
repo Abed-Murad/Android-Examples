@@ -55,6 +55,11 @@ public class BaseActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
+    protected void hideToolbarTitle () {
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
+
+
     protected void showBackArrow() {
         getSupportActionBar().setTitle("Go back");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

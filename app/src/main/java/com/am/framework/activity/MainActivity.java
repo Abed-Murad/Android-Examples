@@ -7,10 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 import com.am.framework.R;
-import com.pierfrancescosoffritti.androidyoutubeplayer.player.YouTubePlayerView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
             R.id.btn_notification_badge,
             R.id.btn_drawer,
             R.id.btn_material_drawer,
-            R.id.btn_youtube_player})
+            R.id.btn_youtube_player,
+            R.id.btn_many_image_views,
+            R.id.btn_custom_toolbar})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_translate_activity:
@@ -75,8 +75,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_material_drawer:
                 startActivity(new Intent(MainActivity.this, MaterialDrawerActivity.class));
                 break;
-                case R.id.btn_youtube_player:
+            case R.id.btn_youtube_player:
                 startActivity(new Intent(MainActivity.this, YoutubePlayerActivity.class));
+                break;
+            case R.id.btn_many_image_views:
+                startActivity(new Intent(MainActivity.this, ManyImageViewsActivity.class));
+                break;
+            case R.id.btn_custom_toolbar:
+                startActivity(new Intent(MainActivity.this, CustomToolbarActivity.class));
                 break;
         }
     }

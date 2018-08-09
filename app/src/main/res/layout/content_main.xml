@@ -60,5 +60,20 @@
         android:layout_height="wrap_content" />
 
 
+    <Button
+        android:id="@+id/btn_many_image_views"
+        android:text="Many ImageViews"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_custom_toolbar"
+        android:text="Custom Toolbar"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
 
 </LinearLayout>

@@ -46,9 +46,17 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.YoutubePlayerActivity"
-            android:label="@string/title_activity_youtube_player"
             android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:label="@string/title_activity_youtube_player"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.ManyImageViewsActivity"
+            android:label="@string/title_activity_many_image_views"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.CustomToolbarActivity"
+            android:label="@string/title_activity_custom_toolbar"
+            android:theme="@style/NoActionBarNoStatusBarTheme"/>
     </application>
 
 </manifest>

@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.am.framework.utill.CONST.DUMMY_IMG_URL;
+
 public class ImagesSliderActivity extends BaseActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -39,9 +41,9 @@ public class ImagesSliderActivity extends BaseActivity {
                 ArrayList<SliderImage> imagesList = new ArrayList<>();
                 for (int i = 0; i < 5; i++) {
                     imagesList.add(new SliderImage("Image Title",
-                            "http://via.placeholder.com/350x150",
-                            "http://via.placeholder.com/350x150",
-                            "http://via.placeholder.com/350x150",
+                            DUMMY_IMG_URL,
+                            DUMMY_IMG_URL,
+                            DUMMY_IMG_URL,
                             "2016-06-06"));
                 }
 

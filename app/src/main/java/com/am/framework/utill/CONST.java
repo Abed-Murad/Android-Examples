@@ -15,4 +15,9 @@ public class CONST {
     public static final String ENGLISH = "en";
     public static final String ARABIC = "ar";
 
+
+
+    //Dummy
+    public static final String DUMMY_IMG_URL = "http://via.placeholder.com/350x150";
+
 }

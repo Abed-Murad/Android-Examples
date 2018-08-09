@@ -16,6 +16,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -58,15 +62,18 @@ dependencies {
 
     //Material Drawer
     implementation("com.mikepenz:materialdrawer:6.0.9@aar") { transitive = true }
+
     //Google Material Icons
     implementation 'com.mikepenz:google-material-typeface:3.0.1.2.original@aar'
+
     //FontAwesome
     implementation 'com.mikepenz:fontawesome-typeface:5.0.13.0@aar'
-
 
     //Youtube Player
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:8.0.1'
 
+    //Circular ImageView
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 
     //Test
     testImplementation 'junit:junit:4.12'
