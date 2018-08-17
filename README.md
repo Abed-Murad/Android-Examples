@@ -1,5 +1,4 @@
-# framework
-## this project includes exmples on :
+# this project includes exmples on :
 
 - Firebase Auth & FirebaseUi 
 - Facebook Auth SDK
