@@ -1,4 +1,4 @@
-# this project includes exmples on :
+# This project includes exmples on :
 
 - Firebase Auth & FirebaseUi 
 - Facebook Auth SDK
