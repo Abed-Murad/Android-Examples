@@ -3,9 +3,7 @@ package com.am.framework.activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 
 import com.am.framework.R;
 import com.am.framework.helper.FullScreenHelper;
@@ -44,7 +42,7 @@ public class YoutubePlayerActivity extends BaseActivity {
                 initializedYouTubePlayer.addListener(new AbstractYouTubePlayerListener() {
                     @Override
                     public void onReady() {
-                        String videoId = "6JYIGclVQdw";
+                        String videoId = "pS-gbqbVd8c";
                         initializedYouTubePlayer.loadVideo(videoId, 0);
                     }
                 });

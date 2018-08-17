@@ -1,15 +1,11 @@
 package com.am.framework.activity;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.widget.FrameLayout;
@@ -24,9 +20,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.am.framework.utill.CONST.DUMMY_IMG_URL_QUEEN;
-import static com.am.framework.utill.CONST.DUMMY_IMG_THUNDER_CAT;
-import static com.am.framework.utill.CONST.DUMMY_IMG_URL_STARS_AT_NIGHT;
+import static com.am.framework.utill.MockDataFactory.DUMMY_IMG_THUNDER_CAT;
+import static com.am.framework.utill.MockDataFactory.DUMMY_IMG_URL_QUEEN;
+import static com.am.framework.utill.MockDataFactory.DUMMY_IMG_URL_STARS_AT_NIGHT;
 
 
 public class ManyImageViewsActivity extends BaseActivity {
