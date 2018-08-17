@@ -18,6 +18,9 @@ public class CONST {
 
 
     //Dummy
-    public static final String DUMMY_IMG_URL = "http://via.placeholder.com/350x150";
+    public static final String DUMMY_IMG_URL_FOOTBALL = "https://i.imgur.com/5H2WatB.jpg";
+    public static final String DUMMY_IMG_URL_STARS_AT_NIGHT = "https://i.imgur.com/UexSTU5.png";
+    public static final String DUMMY_IMG_URL_QUEEN = "https://i.imgur.com/50WwTJP.png";
+    public static final String DUMMY_IMG_THUNDER_CAT = "https://i.imgur.com/ta6iyNE.png";
 
 }

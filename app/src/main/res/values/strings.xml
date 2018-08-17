@@ -25,6 +25,7 @@
     <string name="title_activity_youtube_player">YoutubePlayerActivity</string>
     <string name="title_activity_many_image_views">ManyImageViews</string>
     <string name="title_activity_custom_toolbar">CustomToolbar</string>
+    <string name="title_activity_firebase_user_profile">FirebaseUserProfileActivity</string>
 
 
 </resources>

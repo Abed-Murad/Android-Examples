@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--Facebook API-->
+    <string name="facebook_application_id">726009827748209</string>
+    <string name="fb_login_protocol_scheme">fb726009827748209</string>
+    <!--Twitter API-->
+    <string name="twitter_consumer_key">Y69HkgkR7WcqSsmNTdXWYwvxU</string>
+    <string name="twitter_consumer_secret">SiHBgnzv7qYLVOmZSTu2itd10ZbQvWOoOZOJjecjmqMb4THH52</string>
+    <!--Google Maps API-->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCC2b9G7rPNiqNA8OAMJkEp1O5cB3FqmyQ</string>
+
+
+
+</resources>

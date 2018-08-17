@@ -28,17 +28,16 @@ public class ImagesSliderDialogFragment extends DialogFragment {
     private int selectedPosition = 0;
 
     public static ImagesSliderDialogFragment newInstance() {
-        ImagesSliderDialogFragment f = new ImagesSliderDialogFragment();
-        return f;
+        return new ImagesSliderDialogFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_images_slider_dialog, container, false);
-        viewPager = (ViewPager) v.findViewById(R.id.viewpager);
-        lblCount = (TextView) v.findViewById(R.id.imagesCount);
-        lblTitle = (TextView) v.findViewById(R.id.title);
-        lblDate = (TextView) v.findViewById(R.id.date);
+        viewPager = v.findViewById(R.id.viewpager);
+        lblCount = v.findViewById(R.id.imagesCount);
+        lblTitle = v.findViewById(R.id.title);
+        lblDate = v.findViewById(R.id.date);
 
         images = (ArrayList<SliderImage>) getArguments().getSerializable("imagesList");
         selectedPosition = getArguments().getInt("position");
@@ -110,7 +109,7 @@ public class ImagesSliderDialogFragment extends DialogFragment {
             ImageView imageViewPreview = view.findViewById(R.id.image_preview);
 
             SliderImage image = images.get(position);
-            GlideApp.with(getActivity()).load("http://via.placeholder.com/350x150")
+            GlideApp.with(getActivity()).load(image.getLargeUrl())
                     .thumbnail(0.5f)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(imageViewPreview);
@@ -127,7 +126,7 @@ public class ImagesSliderDialogFragment extends DialogFragment {
 
         @Override
         public boolean isViewFromObject(View view, Object obj) {
-            return view == ((View) obj);
+            return view == obj  ;
         }
 
 

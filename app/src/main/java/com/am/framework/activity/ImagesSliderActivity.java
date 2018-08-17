@@ -17,7 +17,10 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.am.framework.utill.CONST.DUMMY_IMG_URL;
+import static com.am.framework.utill.CONST.DUMMY_IMG_THUNDER_CAT;
+import static com.am.framework.utill.CONST.DUMMY_IMG_URL_FOOTBALL;
+import static com.am.framework.utill.CONST.DUMMY_IMG_URL_QUEEN;
+import static com.am.framework.utill.CONST.DUMMY_IMG_URL_STARS_AT_NIGHT;
 
 public class ImagesSliderActivity extends BaseActivity {
     @BindView(R.id.toolbar)
@@ -39,14 +42,11 @@ public class ImagesSliderActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 ArrayList<SliderImage> imagesList = new ArrayList<>();
-                for (int i = 0; i < 5; i++) {
-                    imagesList.add(new SliderImage("Image Title",
-                            DUMMY_IMG_URL,
-                            DUMMY_IMG_URL,
-                            DUMMY_IMG_URL,
-                            "2016-06-06"));
-                }
-
+                    imagesList.add(new SliderImage("Football Field", DUMMY_IMG_URL_FOOTBALL, DUMMY_IMG_URL_FOOTBALL, DUMMY_IMG_URL_FOOTBALL, "2018-05-06"));
+                    imagesList.add(new SliderImage("Stars At Night", DUMMY_IMG_URL_STARS_AT_NIGHT, DUMMY_IMG_URL_STARS_AT_NIGHT, DUMMY_IMG_URL_STARS_AT_NIGHT, "2000-01-09"));
+                    imagesList.add(new SliderImage("Best Band Ever", DUMMY_IMG_URL_QUEEN, DUMMY_IMG_URL_QUEEN, DUMMY_IMG_URL_QUEEN, "2015-08-03"));
+                    imagesList.add(new SliderImage("Best Band Ever", DUMMY_IMG_URL_QUEEN, DUMMY_IMG_URL_QUEEN, DUMMY_IMG_URL_QUEEN, "2014-12-04"));
+                    imagesList.add(new SliderImage("Thunder Cat Meme", DUMMY_IMG_THUNDER_CAT, DUMMY_IMG_THUNDER_CAT, DUMMY_IMG_THUNDER_CAT, "2020-02-20"));
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("imagesList", imagesList);
                 bundle.putInt("position", 0);
