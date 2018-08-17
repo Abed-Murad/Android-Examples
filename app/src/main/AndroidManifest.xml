@@ -58,7 +58,7 @@
             android:label="@string/title_activity_custom_toolbar"
             android:theme="@style/NoActionBarNoStatusBarTheme" />
         <activity
-            android:name=".FirebaseUserProfileActivity"
+            android:name=".activity.FirebaseUserProfileActivity"
             android:label="@string/title_activity_firebase_user_profile"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
