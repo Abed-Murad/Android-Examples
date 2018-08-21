@@ -26,6 +26,12 @@
     <string name="title_activity_many_image_views">ManyImageViews</string>
     <string name="title_activity_custom_toolbar">CustomToolbar</string>
     <string name="title_activity_firebase_user_profile">FirebaseUserProfileActivity</string>
+    <string name="pref_show_first_name_key">show_first_name</string>
+    <string name="pref_show_false">Hidden</string>
+    <string name="pref_show_true">Shown</string>
+    <string name="pref_show_first_name_title">Show First Name</string>
+    <string name="pref_show_last_name_key">show_last_name</string>
+    <string name="pref_show_last_name_title">Show Last Name</string>
 
 
 </resources>

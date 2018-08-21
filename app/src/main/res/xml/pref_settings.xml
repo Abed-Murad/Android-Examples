@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:defaultValue="@string/pref_show_first_name_default"
+        android:key="@string/pref_show_first_name_key"
+        android:summaryOff="@string/pref_show_false"
+        android:summaryOn="@string/pref_show_true"
+        android:title="@string/pref_show_first_name_title" />
+
+
+    <CheckBoxPreference
+        android:defaultValue="@string/pref_show_last_name_default"
+        android:key="@string/pref_show_last_name_key"
+        android:summaryOff="@string/pref_show_false"
+        android:summaryOn="@string/pref_show_true"
+        android:title="@string/pref_show_last_name_title" />
+</PreferenceScreen>
