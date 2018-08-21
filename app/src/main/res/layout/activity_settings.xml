@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_settings"
+    android:name="com.am.framework.fragment.SettingsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.SettingsActivity">
-
-</fragment>
+    tools:context=".activity.SettingsActivity"/>

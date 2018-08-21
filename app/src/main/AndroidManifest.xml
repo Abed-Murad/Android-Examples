@@ -14,6 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.SplashActivity"
+            android:launchMode="singleTop"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,7 +62,9 @@
             android:name=".activity.FirebaseUserProfileActivity"
             android:label="@string/title_activity_firebase_user_profile"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.SettingsActivity"></activity>
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:parentActivityName=".activity.MainActivity" />
     </application>
 
 </manifest>

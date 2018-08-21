@@ -33,20 +33,20 @@
 
     <Button
         android:id="@+id/btn_notification_badge"
-        android:text="Notification Badge"
+        android:text="@string/title_btn_notification_badge"
         android:textAllCaps="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btn_drawer"
-        android:text="Drawer Activity"
+        android:text="@string/title_btn_drawer_activity"
         android:textAllCaps="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/btn_material_drawer"
-        android:text="Material Drawer Activity"
+        android:text="@string/title_btn_material_drawer_activity"
         android:textAllCaps="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -54,7 +54,7 @@
 
     <Button
         android:id="@+id/btn_youtube_player"
-        android:text="Youtube Player Activity"
+        android:text="@string/title_btn_youtube_player_activity"
         android:textAllCaps="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -62,21 +62,28 @@
 
     <Button
         android:id="@+id/btn_many_image_views"
-        android:text="Many ImageViews"
+        android:text="@string/title_btn_many_imageviews"
         android:textAllCaps="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btn_custom_toolbar"
-        android:text="Custom Toolbar"
+        android:text="@string/title_btn_custom_toolbar"
         android:textAllCaps="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btn_firebase_ui_auth"
-        android:text="Auth With Firebase UI"
+        android:text="@string/title_btn_auth_with_firebase_ui"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_settings_activity"
+        android:text="@string/title_btn_settings_activity"
         android:textAllCaps="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

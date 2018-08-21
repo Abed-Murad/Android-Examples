@@ -47,6 +47,14 @@
     <string name="pref_color_red_value" translatable="false">red</string>
     <string name="pref_color_blue_value" translatable="false">blue</string>
     <string name="pref_color_green_value" translatable="false">green</string>
+    <string name="title_btn_notification_badge">Notification Badge</string>
+    <string name="title_btn_drawer_activity">Drawer Activity</string>
+    <string name="title_btn_material_drawer_activity">Material Drawer Activity</string>
+    <string name="title_btn_youtube_player_activity">Youtube Player Activity</string>
+    <string name="title_btn_many_imageviews">Many ImageViews</string>
+    <string name="title_btn_custom_toolbar">Custom Toolbar</string>
+    <string name="title_btn_auth_with_firebase_ui">Auth With Firebase UI</string>
+    <string name="title_btn_settings_activity">Settings Activity</string>
 
 
 </resources>
