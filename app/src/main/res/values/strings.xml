@@ -26,12 +26,27 @@
     <string name="title_activity_many_image_views">ManyImageViews</string>
     <string name="title_activity_custom_toolbar">CustomToolbar</string>
     <string name="title_activity_firebase_user_profile">FirebaseUserProfileActivity</string>
+
     <string name="pref_show_first_name_key">show_first_name</string>
     <string name="pref_show_false">Hidden</string>
     <string name="pref_show_true">Shown</string>
     <string name="pref_show_first_name_title">Show First Name</string>
     <string name="pref_show_last_name_key">show_last_name</string>
     <string name="pref_show_last_name_title">Show Last Name</string>
+    <string name="pref_city_name_title">City</string>
+    <string name="pref_city_name_key">city_name</string>
+    <string name="pref_city_name_default">Gaza</string>
+
+
+
+    <string name="pref_color_label">Shape Color</string>
+    <string name="pref_color_label_red">Red</string>
+    <string name="pref_color_label_blue">Blue</string>
+    <string name="pref_color_label_green">Green</string>
+    <string name="pref_color_key" translatable="false">color</string>
+    <string name="pref_color_red_value" translatable="false">red</string>
+    <string name="pref_color_blue_value" translatable="false">blue</string>
+    <string name="pref_color_green_value" translatable="false">green</string>
 
 
 </resources>
