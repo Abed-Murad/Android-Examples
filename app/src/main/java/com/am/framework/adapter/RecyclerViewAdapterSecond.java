@@ -12,6 +12,7 @@ import com.am.framework.R;
 import com.am.framework.model.Item;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -129,6 +130,33 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
         notifyItemInserted(0);
 
     }
+    public void addAll(List<Item> appendedItemList) {
+        if (appendedItemList == null || appendedItemList.size() <= 0) {
+            return;
+        }
+        if (this.itemList == null) {
+            this.itemList = new ArrayList<>();
+        }
+        this.itemList.addAll(appendedItemList);
+        notifyDataSetChanged();
+    }
+
+    public void searchFilter(List<Item> list, String search) {
+        this.itemList.clear();
+        if (search == null || search.isEmpty()) {
+            this.itemList.addAll(list);
+        } else {
+            for (Item item : list) {
+                if (item.getTitle().toLowerCase().contains(search.toLowerCase())) {
+                    this.itemList.add(item);
+                }
+            }
+        }
+        notifyDataSetChanged();
+
+    }
+
+
 
     public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {
         this.mItemClickListener = mItemClickListener;
