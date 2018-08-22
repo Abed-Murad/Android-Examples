@@ -27,3 +27,5 @@
 - Custom Views
 - Splash Screen
 - BaseActivity Pattern
+- Sqlite 
+- Reyclerview 
