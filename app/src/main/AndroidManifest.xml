@@ -65,6 +65,10 @@
         <activity
             android:name=".activity.SettingsActivity"
             android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.SqliteActivity"
+            android:label="@string/title_activity_sqlite"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -36,7 +36,12 @@
     <string name="pref_city_name_title">City</string>
     <string name="pref_city_name_key">city_name</string>
     <string name="pref_city_name_default">Gaza</string>
-
+    <string name="pref_notification_key">notification</string>
+    <string name="pref_notification_inactive">InActive</string>
+    <string name="pref_notification_title">Notification</string>
+    <string name="pref_system_sync_settings_title">System Sync Settings</string>
+    <string name="pref_ringtone_title">Ringtone</string>
+    <string name="pref_notification_active">Active</string>
 
 
     <string name="pref_color_label">Shape Color</string>
@@ -55,6 +60,9 @@
     <string name="title_btn_custom_toolbar">Custom Toolbar</string>
     <string name="title_btn_auth_with_firebase_ui">Auth With Firebase UI</string>
     <string name="title_btn_settings_activity">Settings Activity</string>
+    <string name="title_btn_sqlite_activity">SQLite Activity</string>
+    <string name="title_btn_recyclerview_activity">RecyclerView Activity</string>
+    <string name="title_activity_sqlite">SqliteActivity</string>
 
 
 </resources>

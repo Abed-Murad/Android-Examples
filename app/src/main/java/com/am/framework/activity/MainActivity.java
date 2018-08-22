@@ -74,7 +74,9 @@ public class MainActivity extends AppCompatActivity {
             R.id.btn_many_image_views,
             R.id.btn_custom_toolbar,
             R.id.btn_firebase_ui_auth,
-            R.id.btn_settings_activity})
+            R.id.btn_settings_activity,
+            R.id.btn_sqlite_activity
+            , R.id.btn_recyclerview_activity})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_translate_activity:
@@ -109,6 +111,11 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_settings_activity:
                 startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+                break;
+            case R.id.btn_sqlite_activity:
+                break;
+            case R.id.btn_recyclerview_activity:
+                break;
         }
     }
 

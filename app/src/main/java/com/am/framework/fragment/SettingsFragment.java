@@ -31,8 +31,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
         for (int i = 0; i < count; i++) {
             Preference p = preferenceScreen.getPreference(i);
             if (!(p instanceof CheckBoxPreference)) {
-                String preferenceValue = sharedPreferences.getString(p.getKey(), "");
-                setPreferenceSummary(p, preferenceValue);
+//                String preferenceValue = sharedPreferences.getString(p.getKey(), "");
+//                setPreferenceSummary(p, preferenceValue);
             }
         }
         Preference preference = findPreference(getString(R.string.pref_city_name_key));
@@ -60,8 +60,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
         Preference preference = findPreference(key);
         if (preference != null) {
             if (!(preference instanceof CheckBoxPreference)) {
-                String value = sharedPreferences.getString(preference.getKey(), "");
-                setPreferenceSummary(preference, value);
+//                String value = sharedPreferences.getString(preference.getKey(), "");
+//                setPreferenceSummary(preference, value);
             }
         }
     }

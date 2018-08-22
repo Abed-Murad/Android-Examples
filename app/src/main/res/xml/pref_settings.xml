@@ -15,8 +15,11 @@
         android:title="@string/pref_show_last_name_title" />
 
     <EditTextPreference
+        android:capitalize="words"
         android:defaultValue="@string/pref_city_name_default"
+        android:inputType="textCapWords"
         android:key="@string/pref_city_name_key"
+        android:selectAllOnFocus="true"
         android:title="@string/pref_city_name_title" />
 
     <ListPreference
@@ -24,6 +27,20 @@
         android:entries="@array/pref_color_option_labels"
         android:entryValues="@array/pref_color_option_values"
         android:key="favorite_color"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
         android:title="Favorite Color" />
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="@string/pref_notification_key"
+        android:summaryOff="@string/pref_notification_inactive"
+        android:summaryOn="@string/pref_notification_active"
+        android:title="@string/pref_notification_title" />
+
+    <Preference android:title="@string/pref_system_sync_settings_title">
+        <intent android:action="android.settings.SYNC_SETTINGS" />
+    </Preference>
+
 
 </PreferenceScreen>
