@@ -64,7 +64,7 @@ public class NotificationsBadgeDrawable extends Drawable {
         float centerX = (width - radius - 1) + 5;
         float centerY = radius - 5;
         if (mCount.length() <= 2) {
-            // Draw badge circle.
+            // Draw badge bg_circle.
             canvas.drawCircle(centerX, centerY, (int) (radius + 7.5), mBadgePaint1);
             canvas.drawCircle(centerX, centerY, (int) (radius + 5.5), mBadgePaint);
         } else {
@@ -72,7 +72,7 @@ public class NotificationsBadgeDrawable extends Drawable {
             canvas.drawCircle(centerX, centerY, (int) (radius + 6.5), mBadgePaint);
         //  canvas.drawRoundRect(radius, radius, radius, radius, 10, 10, mBadgePaint);
         }
-        // Draw badge count text inside the circle.
+        // Draw badge count text inside the bg_circle.
         mTextPaint.getTextBounds(mCount, 0, mCount.length(), mTxtRect);
         float textHeight = mTxtRect.bottom - mTxtRect.top;
         float textY = centerY + (textHeight / 2f);

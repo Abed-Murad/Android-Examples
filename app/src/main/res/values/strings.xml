@@ -65,4 +65,11 @@
     <string name="title_activity_sqlite">SqliteActivity</string>
 
 
+    <string name="default_guest_name">[Guest name]</string>
+    <string name="default_party_size">\?</string>
+    <string name="hint_guest_name">Guest name</string>
+    <string name="hint_party_size">Party size (max 99)</string>
+    <string name="text_add_button">ADD</string>
+
+
 </resources>
