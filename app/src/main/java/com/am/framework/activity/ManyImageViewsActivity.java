@@ -20,9 +20,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.am.framework.utill.MockDataFactory.DUMMY_IMG_THUNDER_CAT;
-import static com.am.framework.utill.MockDataFactory.DUMMY_IMG_URL_QUEEN;
-import static com.am.framework.utill.MockDataFactory.DUMMY_IMG_URL_STARS_AT_NIGHT;
+import static com.am.framework.utill.FakeDataFactory.DUMMY_IMG_THUNDER_CAT;
+import static com.am.framework.utill.FakeDataFactory.DUMMY_IMG_URL_QUEEN;
+import static com.am.framework.utill.FakeDataFactory.DUMMY_IMG_URL_STARS_AT_NIGHT;
 
 
 public class ManyImageViewsActivity extends BaseActivity {

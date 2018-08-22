@@ -16,7 +16,7 @@ import android.widget.EditText;
 import com.am.framework.R;
 import com.am.framework.adapter.GuestListAdapter;
 import com.am.framework.data.WaitlistDbHelper;
-import com.am.framework.utill.TestUtil;
+import com.am.framework.utill.FakeDataFactory;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -61,7 +61,7 @@ public class SqliteActivity extends AppCompatActivity {
         mDatabase = dbHelper.getWritableDatabase();
 
         //create a list of fake guests
-        TestUtil.insertFakeData(mDatabase);
+        FakeDataFactory.insertFakeData(mDatabase);
 
         // Get All Guests From The Database
         Cursor cursor = getAllGuests();
