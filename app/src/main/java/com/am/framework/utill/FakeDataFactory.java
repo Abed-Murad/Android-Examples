@@ -98,7 +98,7 @@ public class FakeDataFactory {
             db.beginTransaction();
             //clear the table first
             //db.delete (WaitlistContract.WaitlistEntry.TABLE_NAME,null,null);
-            //go through the list and add one by one
+            //go through the list and addLast one by one
             for(ContentValues c:list){
                 db.insert(WaitlistContract.WaitlistEntry.TABLE_NAME, null, c);
             }
