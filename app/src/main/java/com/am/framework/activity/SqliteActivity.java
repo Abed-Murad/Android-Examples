@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -26,7 +25,7 @@ import static com.am.framework.data.WaitlistContract.WaitlistEntry;
 import static com.am.framework.data.WaitlistContract.WaitlistEntry.COLUMN_TIMESTAMP;
 import static com.am.framework.data.WaitlistContract.WaitlistEntry.TABLE_NAME;
 
-public class SqliteActivity extends AppCompatActivity {
+public class SqliteActivity extends BaseActivity {
 
     private static final String TAG = SqliteActivity.class.getSimpleName();
 
@@ -49,7 +48,7 @@ public class SqliteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sqlite);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-
+        showBackArrow();
         allGuestsListView.setLayoutManager(new LinearLayoutManager(this));
         allGuestsListView.setHasFixedSize(true);
         mAdapter = new GuestListAdapter(this);
