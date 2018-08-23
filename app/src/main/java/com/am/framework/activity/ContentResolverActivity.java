@@ -4,7 +4,6 @@ import android.content.ContentResolver;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +17,7 @@ import butterknife.ButterKnife;
 
 
 
-public class ContentResolverActivity extends AppCompatActivity {
+public class ContentResolverActivity extends BaseActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -44,6 +43,8 @@ public class ContentResolverActivity extends AppCompatActivity {
         setContentView(R.layout.activity_content_resolver);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        showBackArrow();
+
         new WordFetchTask().execute();
     }
 

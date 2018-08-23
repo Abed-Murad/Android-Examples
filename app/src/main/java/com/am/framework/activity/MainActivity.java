@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, RecyclerViewActivity.class));
                 break;
             case R.id.btn_content_resolver:
-                startActivity(new Intent(MainActivity.this, RecyclerViewActivity.class));
+                startActivity(new Intent(MainActivity.this, ContentResolverActivity.class));
                 break;
         }
     }
