@@ -89,7 +89,7 @@ public class ContentResolverActivity extends AppCompatActivity {
         @Override
         protected Cursor doInBackground(Void... voids) {
             ContentResolver contentResolver = getContentResolver();
-            
+//            Cursor cursor = contentResolver.query()
             return null;
         }
 
