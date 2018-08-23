@@ -11,9 +11,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.am.framework.R;
+import com.udacity.example.droidtermsprovider.DroidTermsExampleContract;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+
 
 public class ContentResolverActivity extends AppCompatActivity {
 
@@ -41,6 +44,7 @@ public class ContentResolverActivity extends AppCompatActivity {
         setContentView(R.layout.activity_content_resolver);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        new WordFetchTask().execute();
     }
 
     public void onButtonClick(View view) {
@@ -89,13 +93,16 @@ public class ContentResolverActivity extends AppCompatActivity {
         @Override
         protected Cursor doInBackground(Void... voids) {
             ContentResolver contentResolver = getContentResolver();
-//            Cursor cursor = contentResolver.query()
-            return null;
+            Cursor cursor = contentResolver.query(DroidTermsExampleContract.CONTENT_URI,
+                    null, null, null, null);
+            return cursor;
         }
 
         @Override
         protected void onPostExecute(Cursor cursor) {
-
+            mData = cursor;
+            mDefinitionColumn = cursor.getColumnIndex(DroidTermsExampleContract.COLUMN_DEFINITION);
+            mWordColumn = cursor.getColumnIndex(DroidTermsExampleContract.COLUMN_WORD);
             super.onPostExecute(cursor);
         }
     }
