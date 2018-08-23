@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this , SqliteActivity.class));
                 break;
             case R.id.btn_recyclerview_activity:
+                startActivity(new Intent(MainActivity.this, RecyclerViewActivity.class));
                 break;
         }
     }

@@ -21,6 +21,17 @@ import butterknife.ButterKnife;
 /**
  * A custom adapter to use with the RecyclerView widget.
  */
+
+
+/*
+ *
+ * TODO : Add The RecyclerView OnScroll Listener
+ * TODO : Add The Search On The Toolbar
+ *
+ *
+ *
+ *
+ * */
 public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final int TYPE_HEADER = 0;
@@ -35,18 +46,18 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
     private OnItemClickListener mItemClickListener;
 
     private Context mContext;
-    private ArrayList<Item> itemList;
+    private List<Item> itemList;
     private LayoutInflater inflater;
 
-    public RecyclerViewAdapterSecond(Context context, ArrayList<Item> itemList, String headerTitle, String footerTitle) {
+    public RecyclerViewAdapterSecond(Context context, String headerTitle, String footerTitle) {
         this.mContext = context;
-        this.itemList = itemList;
+        this.itemList = new ArrayList<>();
         this.mHeaderTitle = headerTitle;
         this.mFooterTitle = footerTitle;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    public void updateList(ArrayList<Item> modelList) {
+    public void updateList(List<Item> modelList) {
         this.itemList = modelList;
         notifyDataSetChanged();
 
@@ -112,24 +123,26 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
     }
 
 
-
-
     @Override
     public int getItemCount() {
         return itemList == null ? 2 : itemList.size() + 2;
     }
+
     private Item getItem(int position) {
         return itemList.get(position);
     }
+
     public void addLast(Item item) {
         itemList.add(item);
         notifyItemInserted(itemList.size() - 1);
     }
+
     public void addFirst(Item Item) {
         itemList.add(0, Item);
         notifyItemInserted(0);
 
     }
+
     public void addAll(List<Item> appendedItemList) {
         if (appendedItemList == null || appendedItemList.size() <= 0) {
             return;
@@ -156,6 +169,20 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
 
     }
 
+    public void searchFilter(String search) {
+        this.itemList.clear();
+        for (Item item : itemList) {
+            if (item.getTitle().toLowerCase().contains(search.toLowerCase())) {
+                this.itemList.add(item);
+            }
+        }
+        notifyDataSetChanged();
+
+    }
+
+    public List<Item> getDataSet() {
+        return this.itemList;
+    }
 
 
     public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {
@@ -221,6 +248,7 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
                 }
             });
         }
+
         private void setHeaderData() {
             txtTitleHeader.setText(mHeaderTitle);
         }
@@ -245,8 +273,10 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
                 }
             });
         }
-        private void bindData(Item item) {
 
+        private void bindData(Item item) {
+            itemTxtTitle.setText(item.getTitle());
+            itemTxtMessage.setText(item.getMessage());
         }
     }
 

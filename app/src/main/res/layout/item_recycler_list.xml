@@ -24,6 +24,7 @@
             android:id="@+id/item_img_user"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:src="@drawable/avatar_me_round"
             android:background="#16000000" />
 
         <LinearLayout

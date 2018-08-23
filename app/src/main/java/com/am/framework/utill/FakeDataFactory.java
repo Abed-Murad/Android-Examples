@@ -5,13 +5,13 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.am.framework.data.WaitlistContract;
+import com.am.framework.model.Item;
 
 import java.util.ArrayList;
 import java.util.List;
 
 // TODO (1) Add the factory pattern to this class
 public class FakeDataFactory {
-
 
 
     //Dummy
@@ -42,7 +42,7 @@ public class FakeDataFactory {
      * @return A list of popular toys
      */
     public static String[] getToyNames(String google) {
-        return new String[] {
+        return new String[]{
                 "Red Toy Wagon", "Chemistry Set", "Yo-Yo", "Pop-Up Book",
                 "Generic Uncopyrighted Mouse", "Finger Paint", "Sock Monkey", "Microscope Set",
                 "Beach Ball", "BB Gun", "Green Soldiers", "Bubbles", "Spring Toy",
@@ -60,8 +60,8 @@ public class FakeDataFactory {
     }
 
 
-    public static void insertFakeData(SQLiteDatabase db){
-        if(db == null){
+    public static void insertFakeData(SQLiteDatabase db) {
+        if (db == null) {
             return;
         }
         //create a list of fake guests
@@ -93,24 +93,43 @@ public class FakeDataFactory {
         list.add(cv);
 
         //insert all guests in one transaction
-        try
-        {
+        try {
             db.beginTransaction();
             //clear the table first
             //db.delete (WaitlistContract.WaitlistEntry.TABLE_NAME,null,null);
             //go through the list and addLast one by one
-            for(ContentValues c:list){
+            for (ContentValues c : list) {
                 db.insert(WaitlistContract.WaitlistEntry.TABLE_NAME, null, c);
             }
             db.setTransactionSuccessful();
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             //too bad :(
-        }
-        finally
-        {
+        } finally {
             db.endTransaction();
         }
+
+    }
+
+
+    public static List<Item> getFakeItemList() {
+        List<Item> list = new ArrayList<Item>();
+
+        Item item1 = new Item(1, "John", "Manger");
+        list.add(item1);
+
+        Item item2 = new Item(2, "Tim", "Developer");
+        list.add(item2);
+
+        Item item3 = new Item(3, "Jessica", "Marketing");
+        list.add(item3);
+
+        Item item4 = new Item(4, "Larry", "CEO");
+        list.add(item4);
+
+        Item item5 = new Item(5, "Kim", "Designer");
+        list.add(item5);
+
+        return list;
 
     }
 
