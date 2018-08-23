@@ -18,9 +18,9 @@
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".activity.MainActivity"
@@ -72,10 +72,11 @@
         <activity android:name=".activity.RecyclerViewActivity" />
         <activity
             android:name=".activity.SecondRecyclerAdapterActivity"
-            android:theme="@style/AppTheme.Template.Base">
-        </activity>
-
-
+            android:theme="@style/AppTheme.Template.Base"></activity>
+        <activity
+            android:name=".activity.ContentResolverActivity"
+            android:label="@string/title_activity_content_resolver"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

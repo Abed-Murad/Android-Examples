@@ -109,6 +109,13 @@
             android:text="@string/title_btn_recyclerview_activity"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn_content_resolver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_btn_content_resolver"
+            android:textAllCaps="false" />
+
 
     </LinearLayout>
 </ScrollView>

@@ -68,7 +68,6 @@
     <!--Firebase UI Style END-->
 
 
-
     <!--RecyclerView Adapter START-->
     <style name="AppTheme.Template.Base" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
@@ -85,7 +84,6 @@
         <item name="colorControlNormal">@android:color/white</item>
     </style>
     <!--RecyclerView Adapter END-->
-
 
 
 </resources>

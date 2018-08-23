@@ -71,6 +71,9 @@
     <string name="hint_party_size">Party size (max 99)</string>
     <string name="text_add_button">ADD</string>
     <string name="title_btn_second_recycler_view">Second RecyclerView Adapter</string>
+    <string name="title_btn_content_resolver">Content Resolver</string>
+    <string name="title_activity_content_resolver">ContentResolverActivity</string>
+    <string name="show_definition">Show Definition</string>
 
 
 </resources>
