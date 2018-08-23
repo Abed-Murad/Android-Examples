@@ -74,6 +74,8 @@
     <string name="title_btn_content_resolver">Content Resolver</string>
     <string name="title_activity_content_resolver">ContentResolverActivity</string>
     <string name="show_definition">Show Definition</string>
+    <string name="text_btn_show_definition">Show Definition</string>
+    <string name="text_btn_fetch_next_word">Fetch Next Word</string>
 
 
 </resources>

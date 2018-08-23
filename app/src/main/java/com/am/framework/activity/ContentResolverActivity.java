@@ -1,5 +1,6 @@
 package com.am.framework.activity;
 
+import android.content.ContentResolver;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -19,11 +20,11 @@ public class ContentResolverActivity extends AppCompatActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.button_next)
-    Button buttonNext;
+    Button nextBtn;
     @BindView(R.id.text_view_word)
-    TextView textViewWord;
+    TextView mWordTextView;
     @BindView(R.id.text_view_definition)
-    TextView textViewDefinition;
+    TextView mDefinitionTextView;
 
 
     private Cursor mData;
@@ -52,15 +53,43 @@ public class ContentResolverActivity extends AppCompatActivity {
         }
     }
 
-    private void showDefinition() {
-    }
+
 
     private void fetchNextWord() {
+        if (mData != null) {
+            // Move to the next position in the cursor, if there isn't one, move to the first
+            if (!mData.moveToNext()) {
+                mData.moveToFirst();
+            }
+            mDefinitionTextView.setVisibility(View.INVISIBLE);
+            nextBtn.setText(getString(R.string.text_btn_show_definition));
+
+            mWordTextView.setText(mData.getString(mWordColumn));
+            mDefinitionTextView.setText(mData.getString(mDefinitionColumn));
+
+            mCrrentState = STATE_HIDDEN;
+        }
+    }
+
+    private void showDefinition() {
+        if (mData != null) {
+            mDefinitionTextView.setVisibility(View.VISIBLE);
+            nextBtn.setText(getString(R.string.text_btn_fetch_next_word));
+            mCrrentState = STATE_SHOWN;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mData = null;
     }
 
     private class WordFetchTask extends AsyncTask<Void, Void, Cursor> {
         @Override
         protected Cursor doInBackground(Void... voids) {
+            ContentResolver contentResolver = getContentResolver();
+            
             return null;
         }
 
