@@ -24,27 +24,31 @@ import static com.am.framework.utill.FakeDataFactory.IMG_URL_CAT;
 import static com.am.framework.utill.FakeDataFactory.IMG_URL_QUEEN;
 import static com.am.framework.utill.FakeDataFactory.IMG_URL_STARS;
 
-
+//TODO : Find Another Way to Make ManyImageViewsActivity , E.g Multiple layouts with Visibility Manipulation
 public class ManyImageViewsActivity extends BaseActivity {
-    @BindView(R.id.imgframe)
-    FrameLayout frameLayout;
+    @BindView(R.id.frame_layout)
+    FrameLayout mImagesFrameLayout;
     @BindView(R.id.toolbar)
-    Toolbar toolbar;
+    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_many_image_views);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
         showToolbarBackArrow();
 
+        createMultipleImagesLayout();
+
+    }
+
+    private void createMultipleImagesLayout() {
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         int width = size.x;
         int sst = width - 20;
-
 
         ImageView firstIV = new ImageView(this);
         firstIV.setPadding(0, 5, 0, 0);
@@ -63,9 +67,9 @@ public class ManyImageViewsActivity extends BaseActivity {
         thirdIV.setPadding(5, 5, 0, 0);
         thirdIV.setScaleType(ImageView.ScaleType.CENTER_CROP);
         thirdIV.setLayoutParams(new FrameLayout.LayoutParams(width / 2, 200));
-        frameLayout.addView(firstIV);
-        frameLayout.addView(secondIV);
-        frameLayout.addView(thirdIV);
+        mImagesFrameLayout.addView(firstIV);
+        mImagesFrameLayout.addView(secondIV);
+        mImagesFrameLayout.addView(thirdIV);
         GlideApp.with(this).load(IMG_URL_CAT).diskCacheStrategy(DiskCacheStrategy.ALL).into(firstIV);
         GlideApp.with(this).load(IMG_URL_QUEEN).diskCacheStrategy(DiskCacheStrategy.ALL).into(secondIV);
         GlideApp.with(this).load(IMG_URL_STARS).diskCacheStrategy(DiskCacheStrategy.ALL).into(thirdIV);
@@ -80,8 +84,7 @@ public class ManyImageViewsActivity extends BaseActivity {
         textView.setTextSize(40);
         textView.setLayoutParams(new FrameLayout.LayoutParams(sst / 2, 400 / 3));
 
-        frameLayout.addView(textView);
-
+        mImagesFrameLayout.addView(textView);
     }
 
 }
