@@ -15,36 +15,35 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class NotificationBadgeActivity extends BaseActivity {
+
     @BindView(R.id.toolbar)
-    Toolbar toolbar;
-    private LayerDrawable notificationIcon;
+    Toolbar mToolbar;
+
+    private LayerDrawable mNotificationIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_badge);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
         showToolbarBackArrow();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_notifications, menu);
-
-        MenuItem notificationMenuItem = menu.findItem(R.id.action_notification);
-        notificationIcon = (LayerDrawable) notificationMenuItem.getIcon();
-        setBadgeCount(this, notificationIcon, "10");
+        MenuItem mNotificationMenuItem = menu.findItem(R.id.action_notification);
+        mNotificationIcon = (LayerDrawable) mNotificationMenuItem.getIcon();
+        setBadgeCount(this, mNotificationIcon, "10");
         return true;
     }
 
-
     public static void setBadgeCount(Context context, LayerDrawable icon, String count) {
         NotificationsBadgeDrawable badge;
-        Drawable reuse = icon.findDrawableByLayerId(R.id.ic_badge);
-        if (reuse != null && reuse instanceof NotificationsBadgeDrawable) {
-            badge = (NotificationsBadgeDrawable) reuse;
+        Drawable reusableDrawable = icon.findDrawableByLayerId(R.id.ic_badge);
+        if (reusableDrawable != null && reusableDrawable instanceof NotificationsBadgeDrawable) {
+            badge = (NotificationsBadgeDrawable) reusableDrawable;
         } else {
             badge = new NotificationsBadgeDrawable(context);
         }
@@ -53,25 +52,16 @@ public class NotificationBadgeActivity extends BaseActivity {
         icon.setDrawableByLayerId(R.id.ic_badge, badge);
     }
 
-
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //handle the click on the back arrow click
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
                 return true;
             case R.id.action_notification:
-                setBadgeCount(this, notificationIcon, "0");
+                setBadgeCount(this, mNotificationIcon, "0");
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
-
-
-
 }
