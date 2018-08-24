@@ -30,35 +30,35 @@ import butterknife.ButterKnife;
 public class SpannyActivity extends BaseActivity {
 
     @BindView(R.id.toolbar)
-    Toolbar toolbar;
-    @BindView(R.id.textView)
-    TextView textView;
+    Toolbar mToolbar;
+    @BindView(R.id.tv_example)
+    TextView exampleTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spanny);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
         showToolbarBackArrow();
 
-        Spanny spanny = new Spanny("StyleSpan, ", new StyleSpan(Typeface.BOLD_ITALIC))
+        Spanny spanny = new Spanny("Style Span, ", new StyleSpan(Typeface.BOLD_ITALIC))
                 .append("Underline, ", new UnderlineSpan())
                 .append("Typeface, ", new TypefaceSpan("serif"))
                 .append("URL, ", new URLSpan("https://www.google.com"))
                 .append("Strike through, ", new StrikethroughSpan())
                 .append("Quote, ", new QuoteSpan(Color.RED))
                 .append("Plain text, ")
-                .append("Subscript, ", new SubscriptSpan())
-                .append("Superscript, ", new SuperscriptSpan())
-                .append("BackgroundColor, ", new BackgroundColorSpan(Color.RED))
-                .append("ForegroundColor, ", new ForegroundColorSpan(Color.RED))
+                .append("Sub Script, ", new SubscriptSpan())
+                .append("Super Script, ", new SuperscriptSpan())
+                .append("Background Color, ", new BackgroundColorSpan(Color.RED))
+                .append("Foreground Color, ", new ForegroundColorSpan(Color.RED))
                 .append("Alignment,\n ", new AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER))
-                .append("TextAppearance, ", new TextAppearanceSpan(this, android.R.style.TextAppearance_Medium))
+                .append("Text Appearance, ", new TextAppearanceSpan(this, android.R.style.TextAppearance_Medium))
                 .append("ImageSpan, ", new ImageSpan(getApplicationContext(), R.drawable.ic_cheer_active))
-                .append("RelativeSize, ", new RelativeSizeSpan(1.5f))
+                .append("Relative Size, ", new RelativeSizeSpan(1.5f))
                 .append("Multiple spans, ", new StyleSpan(Typeface.ITALIC), new UnderlineSpan(), new TextAppearanceSpan(this, android.R.style.TextAppearance_Large), new AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), new BackgroundColorSpan(Color.LTGRAY));
-        textView.setText(spanny);
+        exampleTextView.setText(spanny);
 
 
     }

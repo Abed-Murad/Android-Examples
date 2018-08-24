@@ -72,7 +72,7 @@
             android:name=".activity.SettingsActivity"
             android:parentActivityName=".activity.MainActivity" />
         <activity
-            android:name=".activity.SqliteActivity"
+            android:name=".activity.SQLiteActivity"
             android:label="@string/title_activity_sqlite"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.RecyclerViewActivity" />

@@ -21,51 +21,50 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static android.provider.BaseColumns._ID;
-import static com.am.framework.data.WaitlistContract.WaitlistEntry;
-import static com.am.framework.data.WaitlistContract.WaitlistEntry.COLUMN_TIMESTAMP;
-import static com.am.framework.data.WaitlistContract.WaitlistEntry.TABLE_NAME;
+import static com.am.framework.data.WaitListContract.WaitListEntry;
+import static com.am.framework.data.WaitListContract.WaitListEntry.COLUMN_TIMESTAMP;
+import static com.am.framework.data.WaitListContract.WaitListEntry.TABLE_NAME;
 
-public class SqliteActivity extends BaseActivity {
+public class SQLiteActivity extends BaseActivity {
 
-    private static final String TAG = SqliteActivity.class.getSimpleName();
+    private static final String TAG = SQLiteActivity.class.getSimpleName();
 
     @BindView(R.id.toolbar)
-    Toolbar toolbar;
-    @BindView(R.id.person_name_edit_text)
-    EditText personNameEditText;
-    @BindView(R.id.party_count_edit_text)
-    EditText partyCountEditText;
-    @BindView(R.id.all_guests_list_view)
-    RecyclerView allGuestsListView;
+    Toolbar mToolbar;
+    @BindView(R.id.et_person_name)
+    EditText mPersonNameEditText;
+    @BindView(R.id.et_party_count)
+    EditText mPartyCountEditText;
+    @BindView(R.id.rv_all_guests)
+    RecyclerView mRecyclerView;
 
     private GuestListAdapter mAdapter;
     private SQLiteDatabase mDatabase;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sqlite);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
         showToolbarBackArrow();
-        allGuestsListView.setLayoutManager(new LinearLayoutManager(this));
-        allGuestsListView.setHasFixedSize(true);
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setHasFixedSize(true);
         mAdapter = new GuestListAdapter(this);
-        allGuestsListView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);
 
         // Create a DB helper (this will create the DB if run for the first time)
         WaitlistDbHelper dbHelper = new WaitlistDbHelper(this);
-
         mDatabase = dbHelper.getWritableDatabase();
-
-        //create a list of fake guests
+        //create a list of fake guests And Insert Them to the Database
         FakeDataFactory.insertFakeData(mDatabase);
-
-        // Get All Guests From The Database
+        // Get All Guests From The Database & Update The Adapter
         Cursor cursor = getAllGuests();
         mAdapter.swapCursor(cursor);
+        //Add ItemTouchHelper to mRecyclerView to Catch Right & Left Swipes
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+
             // Used With Drag Action , will just ignore it here
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
@@ -78,24 +77,11 @@ public class SqliteActivity extends BaseActivity {
                 removeGuest(id);
                 mAdapter.swapCursor(getAllGuests());
             }
-        }).attachToRecyclerView(allGuestsListView);
-
+        }).attachToRecyclerView(mRecyclerView);//Attach The ItemTouchHelper to The RecyclerView
     }
 
-    /**
-     * Removes the record with the specified id
-     * @param id the DB id to be removed
-     * @return True: if removed successfully, False: if failed
-     */
-    private boolean removeGuest(long id) {
-        return mDatabase.delete(TABLE_NAME, _ID + "=" + id, null) > 0;
-    }
-
-    /**
-     * Query the mDatabase and get all guests from the waitlist table
-     *
-     * @return Cursor containing the list of guests
-     */
+    /**Query the mDatabase and get all guests from the waitList table
+     * @return Cursor containing the list of guests     */
     public Cursor getAllGuests() {
         return mDatabase.query(TABLE_NAME,
                 null,
@@ -104,47 +90,49 @@ public class SqliteActivity extends BaseActivity {
                 null,
                 null,
                 COLUMN_TIMESTAMP);
-
     }
 
+    /**Removes the record with the specified id
+     * @param id the DB id to be removed
+     * @return True: if removed successfully, False: if failed      */
+    private boolean removeGuest(long id) {
+        return mDatabase.delete(TABLE_NAME, _ID + "=" + id, null) > 0;
+    }
 
-    public void addToWaitlist(View view) {
-        if (personNameEditText.getText().length() == 0
-                || partyCountEditText.getText().length() == 0) {
+    public void onClickAddToWaitListBtn(View view) {
+        if (mPersonNameEditText.getText().length() == 0
+                || mPartyCountEditText.getText().length() == 0) {
             return;
         }
-
         int partySize = 1;
         try {
             //mNewPartyCountEditText inputType="number", so this should always work
-            partySize = Integer.parseInt(partyCountEditText.getText().toString());
+            partySize = Integer.parseInt(mPartyCountEditText.getText().toString());
         } catch (NumberFormatException ex) {
             Log.e(TAG, "Failed to parse party size text to number: " + ex.getMessage());
         }
 
         // Add guest info to mDb
-        addNewGuest(personNameEditText.getText().toString(), partySize);
+        addNewGuest(mPersonNameEditText.getText().toString(), partySize);
 
         // Update the cursor in the adapter to trigger UI to display the new list
         mAdapter.swapCursor(getAllGuests());
 
         //clear UI text fields
-        partyCountEditText.clearFocus();
-        personNameEditText.getText().clear();
-        partyCountEditText.getText().clear();
+        mPartyCountEditText.clearFocus();
+        mPersonNameEditText.getText().clear();
+        mPartyCountEditText.getText().clear();
     }
-    /**
-     * Adds a new guest to the mDb including the party count and the current timestamp
-     *
+
+    /**Adds a new guest to the mDb including the party count and the current timestamp
      * @param name  Guest's name
      * @param partySize Number in party
-     * @return id of new record added
-     */
+     * @return id of new record added       */
     private long addNewGuest(String name, int partySize) {
         ContentValues cv = new ContentValues();
-        cv.put(WaitlistEntry.COLUMN_GUEST_NAME, name);
-        cv.put(WaitlistEntry.COLUMN_PARTY_SIZE, partySize);
-        return mDatabase.insert(WaitlistEntry.TABLE_NAME, null, cv);
+        cv.put(WaitListEntry.COLUMN_GUEST_NAME, name);
+        cv.put(WaitListEntry.COLUMN_PARTY_SIZE, partySize);
+        return mDatabase.insert(WaitListEntry.TABLE_NAME, null, cv);
     }
 
 }

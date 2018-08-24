@@ -8,14 +8,13 @@ import com.am.framework.R;
 
 public class SettingsActivity extends BaseActivity {
 
-
+    //All The Code is in com.am.framework.fragment.SettingsFragment
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_fragment_settings);
         showToolbarBackArrow();
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

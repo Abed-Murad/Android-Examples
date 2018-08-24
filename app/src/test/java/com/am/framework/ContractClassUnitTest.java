@@ -2,7 +2,7 @@ package com.am.framework;
 
 import android.provider.BaseColumns;
 
-import com.am.framework.data.WaitlistContract;
+import com.am.framework.data.WaitListContract;
 
 import org.junit.Test;
 
@@ -21,13 +21,13 @@ public class ContractClassUnitTest {
 
     @Test
     public void inner_class_exists() throws Exception {
-        Class[] innerClasses = WaitlistContract.class.getDeclaredClasses();
+        Class[] innerClasses = WaitListContract.class.getDeclaredClasses();
         assertEquals("There should be 1 Inner class inside the contract class", 1, innerClasses.length);
     }
 
     @Test
     public void inner_class_type_correct() throws Exception {
-        Class[] innerClasses = WaitlistContract.class.getDeclaredClasses();
+        Class[] innerClasses = WaitListContract.class.getDeclaredClasses();
         assertEquals("Cannot find inner class to complete unit test", 1, innerClasses.length);
         Class entryClass = innerClasses[0];
         assertTrue("Inner class should implement the BaseColumns interface", BaseColumns.class.isAssignableFrom(entryClass));
@@ -37,7 +37,7 @@ public class ContractClassUnitTest {
 
     @Test
     public void inner_class_members_correct() throws Exception {
-        Class[] innerClasses = WaitlistContract.class.getDeclaredClasses();
+        Class[] innerClasses = WaitListContract.class.getDeclaredClasses();
         assertEquals("Cannot find inner class to complete unit test", 1, innerClasses.length);
         Class entryClass = innerClasses[0];
         Field[] allFields = entryClass.getDeclaredFields();

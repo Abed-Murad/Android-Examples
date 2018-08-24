@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.am.framework.R;
-import com.am.framework.data.WaitlistContract;
+import com.am.framework.data.WaitListContract;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,9 +40,9 @@ public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.Gues
         if (!mCursor.moveToPosition(position))
             return; // bail if returned null
 
-        String name = mCursor.getString(mCursor.getColumnIndex(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME));
-        int partySize = mCursor.getInt(mCursor.getColumnIndex(WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE));
-        long id = mCursor.getLong(mCursor.getColumnIndex(WaitlistContract.WaitlistEntry._ID));
+        String name = mCursor.getString(mCursor.getColumnIndex(WaitListContract.WaitListEntry.COLUMN_GUEST_NAME));
+        int partySize = mCursor.getInt(mCursor.getColumnIndex(WaitListContract.WaitListEntry.COLUMN_PARTY_SIZE));
+        long id = mCursor.getLong(mCursor.getColumnIndex(WaitListContract.WaitListEntry._ID));
 
         holder.nameTextView.setText(name);
         holder.partySizeTextView.setText(String.valueOf(partySize));

@@ -31,22 +31,23 @@ import static com.am.framework.utill.CONST.ENGLISH;
 import static com.am.framework.utill.CONST.YENDEX_API_KEY;
 import static com.am.framework.utill.CONST.YENDEX_BASE_URL;
 
+//TODO : Change the Volley Request to Retrofit
 public class YendexTranslateActivity extends BaseActivity {
 
     private static final String TAG = YendexTranslateActivity.class.getSimpleName();
 
     @BindView(R.id.btn_translate)
-    Button translateBtn;
+    Button mTranslateBtn;
     @BindView(R.id.txt_orginal_text)
-    TextView originalTextET;
+    TextView mOriginalTextET;
     @BindView(R.id.txt_translated_text)
-    TextView translatedTextTV;
+    TextView mTranslatedTextTV;
     @BindView(R.id.spinner_original_lang)
-    Spinner originalLangSpinner;
+    Spinner mOriginalLangSpinner;
     @BindView(R.id.spinner_destination_language)
-    Spinner destinationLangSpinner;
+    Spinner mDestinationLangSpinner;
     @BindView(R.id.toolbar)
-    Toolbar toolbar;
+    Toolbar mToolbar;
 
     private RequestQueue requestQueue;
 
@@ -55,9 +56,11 @@ public class YendexTranslateActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translate);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
         showToolbarBackArrow();
+
         requestQueue = Volley.newRequestQueue(this);
+
         initListener();
         initSpinners();
     }
@@ -70,22 +73,22 @@ public class YendexTranslateActivity extends BaseActivity {
         ArrayAdapter<String> languagesListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, languagesList);
         languagesListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        originalLangSpinner.setAdapter(languagesListAdapter);
-        destinationLangSpinner.setAdapter(languagesListAdapter);
+        mOriginalLangSpinner.setAdapter(languagesListAdapter);
+        mDestinationLangSpinner.setAdapter(languagesListAdapter);
 
-        originalLangSpinner.setSelection(0);
-        destinationLangSpinner.setSelection(1);
+        mOriginalLangSpinner.setSelection(0);
+        mDestinationLangSpinner.setSelection(1);
     }
 
 
     private void initListener() {
-        translateBtn.setOnClickListener(new View.OnClickListener() {
+        mTranslateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String originalText = originalTextET.getText().toString();
-                String destinationLangCode = destinationLangSpinner.getSelectedItem().toString();
-                String originalLangCode = originalLangSpinner.getSelectedItem().toString();
+                String originalText = mOriginalTextET.getText().toString();
+                String destinationLangCode = mDestinationLangSpinner.getSelectedItem().toString();
+                String originalLangCode = mOriginalLangSpinner.getSelectedItem().toString();
                 String langsParm = originalLangCode + "-" + destinationLangCode;
                 String finalUrl = YENDEX_BASE_URL + YENDEX_API_KEY + "&text=" + originalText + "&lang=" + langsParm;
 
@@ -102,7 +105,7 @@ public class YendexTranslateActivity extends BaseActivity {
                             //Getting the characters between " & "
                             translation = translation.substring(translation.indexOf("\"") + 1);
                             translation = translation.substring(0, translation.indexOf("\""));
-                            translatedTextTV.setText(translation);
+                            mTranslatedTextTV.setText(translation);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
