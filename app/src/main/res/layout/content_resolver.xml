@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:onClick="onButtonClick"
+        android:onClick="onClickNextWordBtn"
         android:text="@string/show_definition" />
 
     <TextView
