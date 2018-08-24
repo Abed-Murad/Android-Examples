@@ -1,4 +1,4 @@
-package com.udacity.example.droidtermsprovider;
+package com.am.droidtermsprovider;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

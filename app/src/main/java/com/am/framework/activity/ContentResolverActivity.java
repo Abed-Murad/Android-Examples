@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.am.droidtermsprovider.DroidTermsExampleContract;
 import com.am.framework.R;
-import com.udacity.example.droidtermsprovider.DroidTermsExampleContract;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

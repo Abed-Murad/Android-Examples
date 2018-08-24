@@ -1,4 +1,4 @@
-package com.udacity.example.droidtermsprovider;
+package com.am.droidtermsprovider;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;

@@ -17,7 +17,6 @@ import butterknife.ButterKnife;
 
 public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.GuestViewHolder> {
 
-
     private Cursor mCursor;
     private Context mContext;
 

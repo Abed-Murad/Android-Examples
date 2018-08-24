@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.am.framework">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.am.framework">
 
     <!--Allow Applications To Open Network Sockets-->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,7 +18,8 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_cheer_active"
         android:supportsRtl="false"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:supportsRtl">
         <activity
             android:name=".activity.SplashActivity"
             android:launchMode="singleTop"
@@ -79,11 +82,11 @@
         <!--Uses A Custom Theme @style/AppTheme.Template.Base -->
         <activity
             android:name=".activity.SecondRecyclerAdapterActivity"
-            android:theme="@style/AppTheme.Template.Base"/>
+            android:theme="@style/AppTheme.Template.Base" />
         <activity
             android:name=".activity.ContentResolverActivity"
             android:label="@string/title_activity_content_resolver"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
