@@ -48,7 +48,7 @@ public class SqliteActivity extends BaseActivity {
         setContentView(R.layout.activity_sqlite);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        showBackArrow();
+        showToolbarBackArrow();
         allGuestsListView.setLayoutManager(new LinearLayoutManager(this));
         allGuestsListView.setHasFixedSize(true);
         mAdapter = new GuestListAdapter(this);

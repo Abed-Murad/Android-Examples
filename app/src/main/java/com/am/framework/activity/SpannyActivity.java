@@ -3,7 +3,6 @@ package com.am.framework.activity;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Layout;
 import android.text.style.AlignmentSpan;
@@ -20,7 +19,6 @@ import android.text.style.TextAppearanceSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
-import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.am.framework.R;
@@ -42,7 +40,7 @@ public class SpannyActivity extends BaseActivity {
         setContentView(R.layout.activity_spanny);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        showBackArrow();
+        showToolbarBackArrow();
 
         Spanny spanny = new Spanny("StyleSpan, ", new StyleSpan(Typeface.BOLD_ITALIC))
                 .append("Underline, ", new UnderlineSpan())

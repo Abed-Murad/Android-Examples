@@ -43,7 +43,7 @@ public class ContentResolverActivity extends BaseActivity {
         setContentView(R.layout.activity_content_resolver);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        showBackArrow();
+        showToolbarBackArrow();
 
         new WordFetchTask().execute();
     }

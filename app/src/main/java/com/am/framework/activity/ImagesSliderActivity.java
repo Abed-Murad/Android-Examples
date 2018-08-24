@@ -31,7 +31,7 @@ public class ImagesSliderActivity extends BaseActivity {
         setContentView(R.layout.activity_images_slider);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        showBackArrow();
+        showToolbarBackArrow();
 
 
 

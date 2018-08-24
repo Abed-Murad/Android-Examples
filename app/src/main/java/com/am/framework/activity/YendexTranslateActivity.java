@@ -3,7 +3,6 @@ package com.am.framework.activity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -57,7 +56,7 @@ public class YendexTranslateActivity extends BaseActivity {
         setContentView(R.layout.activity_translate);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        showBackArrow();
+        showToolbarBackArrow();
         requestQueue = Volley.newRequestQueue(this);
         initListener();
         initSpinners();

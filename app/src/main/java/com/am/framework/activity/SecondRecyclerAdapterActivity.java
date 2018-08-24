@@ -51,7 +51,7 @@ public class SecondRecyclerAdapterActivity extends BaseActivity {
         setContentView(R.layout.activity_second_recycler_adapter);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        showBackArrow();
+        showToolbarBackArrow();
         setAdapter();
 
         swipeRefreshRecyclerList.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

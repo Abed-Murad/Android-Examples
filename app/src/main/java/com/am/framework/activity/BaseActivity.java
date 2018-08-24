@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 public class BaseActivity extends AppCompatActivity {
-    public ProgressDialog mProgressDialog;
+
+    private static final String TAG = BaseActivity.class.getSimpleName();
+    private ProgressDialog mProgressDialog;
 
     protected void showProgressDialog() {
         if (mProgressDialog == null) {
@@ -30,18 +32,21 @@ public class BaseActivity extends AppCompatActivity {
         mProgressDialog.show();
     }
 
-
     protected void hideProgressDialog() {
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.dismiss();
         }
     }
 
-
+    /**
+     * @return true if the device is connect to wifi network , false if NOT
+     */
     protected boolean isConnectedToWifi() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-
+        ConnectivityManager connectivityManager =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager != null
+                ? connectivityManager.getActiveNetworkInfo()
+                : null;
         return networkInfo != null && networkInfo.isConnectedOrConnecting();
     }
 
@@ -51,34 +56,34 @@ public class BaseActivity extends AppCompatActivity {
         hideProgressDialog();
     }
 
+    /**
+     * TODO (1) Find Out What is the use of the (View) Parameter in this method
+     *
+     * @param ???
+     */
     public void hideKeyboard(View view) {
-        final InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (imm != null) {
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        final InputMethodManager inputMethodManager
+                = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (inputMethodManager != null) {
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
 
-
-
-
-
-    protected void showBackArrow(String toolBarTitle) {
-        getSupportActionBar().setTitle(toolBarTitle);
+    protected void showToolbarBackArrow(String title) {
+        getSupportActionBar().setTitle(title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
-    protected void hideToolbarTitle () {
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-    }
-
-
-    protected void showBackArrow() {
+    protected void showToolbarBackArrow() {
         getSupportActionBar().setTitle("Go back");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
+    protected void hideToolbarTitle() {
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

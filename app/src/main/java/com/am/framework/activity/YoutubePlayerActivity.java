@@ -32,7 +32,7 @@ public class YoutubePlayerActivity extends BaseActivity {
         setContentView(R.layout.activity_youtube_player);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        showBackArrow();
+        showToolbarBackArrow();
 
         getLifecycle().addObserver(youTubePlayerView);
         fullScreenHelper = new FullScreenHelper(this, toolbar, fab);

@@ -37,7 +37,7 @@ public class ManyImageViewsActivity extends BaseActivity {
         setContentView(R.layout.activity_many_image_views);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        showBackArrow();
+        showToolbarBackArrow();
 
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
