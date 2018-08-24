@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.am.framework">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.am.framework">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--Allow Applications To Open Network Sockets-->
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--Allow Applications To Access Information About Networks-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--Permission For The DroidTermsExample.apk Content Provider-->
     <uses-permission android:name="com.example.udacity.droidtermsexample.TERMS_READ" />
 
     <application
@@ -11,7 +15,7 @@
         android:icon="@drawable/ic_cheer_active"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_cheer_active"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.SplashActivity"
@@ -19,7 +23,6 @@
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -46,6 +49,8 @@
         <activity
             android:name=".activity.MaterialDrawerActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <!--ConfigChanges : used to Keep Up with The Changes like orientation without Losing unSaved Data-->
         <activity
             android:name=".activity.YoutubePlayerActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
@@ -71,13 +76,14 @@
             android:label="@string/title_activity_sqlite"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.RecyclerViewActivity" />
+        <!--Uses A Custom Theme @style/AppTheme.Template.Base -->
         <activity
             android:name=".activity.SecondRecyclerAdapterActivity"
-            android:theme="@style/AppTheme.Template.Base"></activity>
+            android:theme="@style/AppTheme.Template.Base"/>
         <activity
             android:name=".activity.ContentResolverActivity"
             android:label="@string/title_activity_content_resolver"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
