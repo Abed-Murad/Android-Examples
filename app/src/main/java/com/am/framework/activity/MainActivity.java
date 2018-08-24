@@ -23,13 +23,12 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String URL_TERMS_OF_SERVICE = "https://www.kabam.com/corporate/terms-of-service.html";
     private static final int FIREBASE_UI_SIGN_IN_REQUEST_CODE = 1010;
     private static final int GOOGLE_SIGN_IN_REQUEST_CODE = 9001;
 
-
     @BindView(R.id.toolbar)
-    Toolbar toolbar;
-
+    Toolbar mToolbar;
 
     private FirebaseUser currentUser;
 
@@ -38,30 +37,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        //handle the click on the back arrow click
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
     }
 
     @OnClick({R.id.btn_translate_activity,
@@ -129,20 +111,19 @@ public class MainActivity extends AppCompatActivity {
     private void startFirebaseUiForAuth() {
         List<AuthUI.IdpConfig> providers = Arrays.asList(
                 new AuthUI.IdpConfig.GoogleBuilder().build(),
-                new AuthUI.IdpConfig.FacebookBuilder().setPermissions(Arrays.asList("user_friends", "instagram_basic")).build(),
+                new AuthUI.IdpConfig.FacebookBuilder()
+                        .setPermissions(Arrays.asList("user_friends", "instagram_basic")).build(),
                 new AuthUI.IdpConfig.EmailBuilder().build(),
                 new AuthUI.IdpConfig.TwitterBuilder().build()
-//            new AuthUI.IdpConfig.PhoneBuilder().build(),
-        );
-        // Build FirebaseUI sign in intent. For documentation on this operation and all
-        // possible customization see: https://github.com/firebase/firebaseui-android
+//              new AuthUI.IdpConfig.PhoneBuilder().build(),
+                );
+
         Intent intent = AuthUI.getInstance().createSignInIntentBuilder()
                 .setIsSmartLockEnabled(!BuildConfig.DEBUG, true)
                 .setAvailableProviders(providers)
                 .setLogo(R.drawable.logo_placehoder_gray)
                 .setTheme(R.style.LoginTheme)
-                .setTosAndPrivacyPolicyUrls("https://www.kabam.com/corporate/terms-of-service.html",
-                        "https://www.kabam.com/corporate/terms-of-service.html")
+                .setTosAndPrivacyPolicyUrls(URL_TERMS_OF_SERVICE, URL_TERMS_OF_SERVICE)
                 .build();
 
         startActivityForResult(intent, FIREBASE_UI_SIGN_IN_REQUEST_CODE);
@@ -155,13 +136,25 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-    // [START onactivityresult]
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         updateUI();
     }
-    // [END onactivityresult]
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //handle the click on the back arrow click
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
