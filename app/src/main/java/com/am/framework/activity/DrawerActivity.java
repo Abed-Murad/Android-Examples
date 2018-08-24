@@ -14,7 +14,8 @@ import com.am.framework.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DrawerActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class DrawerActivity extends BaseActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -23,14 +24,12 @@ public class DrawerActivity extends BaseActivity implements NavigationView.OnNav
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar,
@@ -41,12 +40,25 @@ public class DrawerActivity extends BaseActivity implements NavigationView.OnNav
     }
 
     @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.nav_camera:
+                break;
+            case R.id.nav_gallery:
+                break;
+            case R.id.nav_slideshow:
+                break;
+            case R.id.nav_manage:
+                break;
+            case R.id.nav_share:
+                break;
+            case R.id.nav_send:
+                break;
         }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     @Override
@@ -64,27 +76,14 @@ public class DrawerActivity extends BaseActivity implements NavigationView.OnNav
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
     }
 }
