@@ -14,7 +14,7 @@ import butterknife.OnClick;
 public class RecyclerViewActivity extends AppCompatActivity {
 
     @BindView(R.id.btn_second_adapter)
-    Button btnSecondAdapter;
+    Button secondAdapterBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,5 @@ public class RecyclerViewActivity extends AppCompatActivity {
     @OnClick(R.id.btn_second_adapter)
     public void onViewClicked() {
         startActivity(new Intent(RecyclerViewActivity.this, SecondRecyclerAdapterActivity.class));
-
     }
 }

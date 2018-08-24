@@ -30,116 +30,80 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SecondRecyclerAdapterActivity extends BaseActivity {
+public class SecondRecyclerAdapterActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R.id.toolbar)
-    Toolbar toolbar;
+    Toolbar mToolbar;
     @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
+    RecyclerView mRecyclerView;
     @BindView(R.id.swipe_refresh_recycler_list)
-    SwipeRefreshLayout swipeRefreshRecyclerList;
+    SwipeRefreshLayout mSwipeRefreshLayout;
     @BindView(R.id.fab)
     FloatingActionButton fab;
 
     private RecyclerViewAdapterSecond mAdapter;
-    private RecyclerViewScrollListener scrollListener;
-
+    private RecyclerViewScrollListener mScrollListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_recycler_adapter);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
         showToolbarBackArrow();
-        setAdapter();
 
-        swipeRefreshRecyclerList.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-
-                // Do your stuff on refresh
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        if (swipeRefreshRecyclerList.isRefreshing())
-                            swipeRefreshRecyclerList.setRefreshing(false);
-                    }
-                }, 5000);
-
-            }
-        });
+        setupAdapter();
+        mSwipeRefreshLayout.setOnRefreshListener(this);
 
     }
 
-    private void setAdapter() {
+    private void setupAdapter() {
         List<Item> itemList = FakeDataFactory.getFakeItemList();
-        mAdapter = new RecyclerViewAdapterSecond(SecondRecyclerAdapterActivity.this, "Header", "Footer");
+        mAdapter = new RecyclerViewAdapterSecond(SecondRecyclerAdapterActivity.this,
+                "Header", "Footer");
         mAdapter.addAll(itemList);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(mAdapter);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(mAdapter);
 
-        mAdapter.SetOnItemClickListener(new RecyclerViewAdapterSecond.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position, Item model) {
-                //handle item click events here
-                Toast.makeText(SecondRecyclerAdapterActivity.this, "Hey " + model.getTitle(), Toast.LENGTH_SHORT).show();
-
-
-            }
+        mAdapter.SetOnItemClickListener((view, position, model) -> {
+            //handle item click events here
+            Toast.makeText(SecondRecyclerAdapterActivity.this,
+                    "Hey " + model.getTitle(), Toast.LENGTH_SHORT).show();
         });
 
-
-        mAdapter.SetOnHeaderClickListener(new RecyclerViewAdapterSecond.OnHeaderClickListener() {
-            @Override
-            public void onHeaderClick(View view, String headerTitle) {
-
-                //handle item click events here
-                Toast.makeText(SecondRecyclerAdapterActivity.this, "Hey I am a header", Toast.LENGTH_SHORT).show();
-
-            }
+        mAdapter.SetOnHeaderClickListener((view, headerTitle) -> {
+            //handle item click events here
+            Toast.makeText(SecondRecyclerAdapterActivity.this,
+                    "Hey I am a header", Toast.LENGTH_SHORT).show();
         });
 
-        mAdapter.SetOnFooterClickListener(new RecyclerViewAdapterSecond.OnFooterClickListener() {
-            @Override
-            public void onFooterClick(View view, String footerTitle) {
-
-                //handle item click events here
-                Toast.makeText(SecondRecyclerAdapterActivity.this, "Hey I am a footer", Toast.LENGTH_SHORT).show();
-
-            }
+        mAdapter.SetOnFooterClickListener((view, footerTitle) -> {
+            //handle item click events here
+            Toast.makeText(SecondRecyclerAdapterActivity.this,
+                    "Hey I am a footer", Toast.LENGTH_SHORT).show();
         });
 
-
-        scrollListener = new RecyclerViewScrollListener() {
-
+        mScrollListener = new RecyclerViewScrollListener() {
             public void onEndOfScrollReached(RecyclerView rv) {
-
-                Toast.makeText(SecondRecyclerAdapterActivity.this, "End of the RecyclerView reached. Do your pagination stuff here", Toast.LENGTH_SHORT).show();
-
-                scrollListener.disableScrollListener();
+                Toast.makeText(SecondRecyclerAdapterActivity.this,
+                        "The End , Do your pagination stuff here", Toast.LENGTH_SHORT).show();
+                mScrollListener.disableScrollListener();
             }
         };
-        recyclerView.addOnScrollListener(scrollListener);
-          /*
-             Note: The below two methods should be used wisely to handle the pagination enable and disable states based on the use case.
-                     1. scrollListener.disableScrollListener(); - Should be called to disable the scroll state.
-                     2. scrollListener.enableScrollListener(); - Should be called to enable the scroll state.
-          */
-
-
-
+        /*
+             Note: The below two methods should be used wisely to
+             handle the pagination enable and disable states based on the use case.
+             1. mScrollListener.disableScrollListener(); - Should be called to disable the scroll state.
+             2. mScrollListener.enableScrollListener(); - Should be called to enable the scroll state.
+        */
+        mRecyclerView.addOnScrollListener(mScrollListener);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-
         getMenuInflater().inflate(R.menu.menu_search, menu);
-
 
         // Retrieve the SearchView and plug it into SearchManager
         final SearchView searchView = (SearchView) MenuItemCompat
@@ -162,15 +126,10 @@ public class SecondRecyclerAdapterActivity extends BaseActivity {
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
 
                 for (int i = start; i < end; i++) {
-
                     if (!Character.isLetterOrDigit(source.charAt(i)))
                         return "";
                 }
-
-
                 return null;
-
-
             }
         };
         searchEdit.setFilters(fArray);
@@ -194,17 +153,23 @@ public class SecondRecyclerAdapterActivity extends BaseActivity {
                             mAdapter.updateList(filterList);
                         }
                     }
-
                 } else {
                     mAdapter.updateList(dataSet);
                 }
                 return false;
             }
         });
-
-
         return true;
     }
 
+    @Override
+    public void onRefresh() {
+        new Handler().postDelayed(() -> {
+            if (mSwipeRefreshLayout.isRefreshing()) {
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
+            // Do your stuff on refresh
 
+        }, 5000);
+    }
 }
