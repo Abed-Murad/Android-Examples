@@ -20,9 +20,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.am.framework.utill.FakeDataFactory.DUMMY_IMG_THUNDER_CAT;
-import static com.am.framework.utill.FakeDataFactory.DUMMY_IMG_URL_QUEEN;
-import static com.am.framework.utill.FakeDataFactory.DUMMY_IMG_URL_STARS_AT_NIGHT;
+import static com.am.framework.utill.FakeDataFactory.IMG_URL_CAT;
+import static com.am.framework.utill.FakeDataFactory.IMG_URL_QUEEN;
+import static com.am.framework.utill.FakeDataFactory.IMG_URL_STARS;
 
 
 public class ManyImageViewsActivity extends BaseActivity {
@@ -66,9 +66,9 @@ public class ManyImageViewsActivity extends BaseActivity {
         frameLayout.addView(firstIV);
         frameLayout.addView(secondIV);
         frameLayout.addView(thirdIV);
-        GlideApp.with(this).load(DUMMY_IMG_THUNDER_CAT).diskCacheStrategy(DiskCacheStrategy.ALL).into(firstIV);
-        GlideApp.with(this).load(DUMMY_IMG_URL_QUEEN).diskCacheStrategy(DiskCacheStrategy.ALL).into(secondIV);
-        GlideApp.with(this).load(DUMMY_IMG_URL_STARS_AT_NIGHT).diskCacheStrategy(DiskCacheStrategy.ALL).into(thirdIV);
+        GlideApp.with(this).load(IMG_URL_CAT).diskCacheStrategy(DiskCacheStrategy.ALL).into(firstIV);
+        GlideApp.with(this).load(IMG_URL_QUEEN).diskCacheStrategy(DiskCacheStrategy.ALL).into(secondIV);
+        GlideApp.with(this).load(IMG_URL_STARS).diskCacheStrategy(DiskCacheStrategy.ALL).into(thirdIV);
         TextView textView = new TextView(this);
         int extraImagesCount = 3;
         Spanny spanny = new Spanny("+ " + extraImagesCount, new ForegroundColorSpan(Color.BLACK));

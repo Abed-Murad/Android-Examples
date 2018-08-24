@@ -20,6 +20,10 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.ArrayList;
 
 public class ImagesSliderDialogFragment extends DialogFragment {
+
+    private final static String IMAGES_LIST = "imagesList";
+    private final static String POSITION = "position";
+
     private String TAG = ImagesSliderDialogFragment.class.getSimpleName();
     private ArrayList<SliderImage> images;
     private ViewPager viewPager;
@@ -39,8 +43,8 @@ public class ImagesSliderDialogFragment extends DialogFragment {
         lblTitle = v.findViewById(R.id.title);
         lblDate = v.findViewById(R.id.date);
 
-        images = (ArrayList<SliderImage>) getArguments().getSerializable("imagesList");
-        selectedPosition = getArguments().getInt("position");
+        images = (ArrayList<SliderImage>) getArguments().getSerializable(IMAGES_LIST);
+        selectedPosition = getArguments().getInt(POSITION);
 
         Log.e(TAG, "position: " + selectedPosition);
         Log.e(TAG, "images size: " + images.size());
@@ -126,7 +130,7 @@ public class ImagesSliderDialogFragment extends DialogFragment {
 
         @Override
         public boolean isViewFromObject(View view, Object obj) {
-            return view == obj  ;
+            return view == obj;
         }
 
 

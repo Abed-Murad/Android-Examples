@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.am.framework.data.WaitlistContract;
 import com.am.framework.model.Item;
+import com.am.framework.model.SliderImage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,13 +14,11 @@ import java.util.List;
 // TODO (1) Add the factory pattern to this class
 public class FakeDataFactory {
 
-
     //Dummy
-    public static final String DUMMY_IMG_URL_FOOTBALL = "https://i.imgur.com/5H2WatB.jpg";
-    public static final String DUMMY_IMG_URL_STARS_AT_NIGHT = "https://i.imgur.com/UexSTU5.png";
-    public static final String DUMMY_IMG_URL_QUEEN = "https://i.imgur.com/50WwTJP.png";
-    public static final String DUMMY_IMG_THUNDER_CAT = "https://i.imgur.com/ta6iyNE.png";
-
+    public static final String IMG_URL_FOOTBALL = "https://i.imgur.com/5H2WatB.jpg";
+    public static final String IMG_URL_STARS = "https://i.imgur.com/UexSTU5.png";
+    public static final String IMG_URL_QUEEN = "https://i.imgur.com/50WwTJP.png";
+    public static final String IMG_URL_CAT = "https://i.imgur.com/ta6iyNE.png";
 
     String[] dummyWeatherData = {
             "Today, May 17 - Clear - 17°C / 15°C",
@@ -35,8 +34,7 @@ public class FakeDataFactory {
             "Fri, May 27 - Hurricane - 21°C / 9°C",
             "Sat, May 28 - Meteors - 16°C / 7°C",
             "Sun, May 29 - Apocalypse - 16°C / 8°C",
-            "Mon, May 30 - Post Apocalypse - 15°C / 10°C",
-    };
+            "Mon, May 30 - Post Apocalypse - 15°C / 10°C",};
 
     /**
      * @return A list of popular toys
@@ -59,13 +57,11 @@ public class FakeDataFactory {
         };
     }
 
-
     public static void insertFakeData(SQLiteDatabase db) {
         if (db == null) {
             return;
         }
-        //create a list of fake guests
-        List<ContentValues> list = new ArrayList<ContentValues>();
+        List<ContentValues> list = new ArrayList<>();
 
         ContentValues cv = new ContentValues();
         cv.put(WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME, "John");
@@ -107,31 +103,31 @@ public class FakeDataFactory {
         } finally {
             db.endTransaction();
         }
-
     }
 
-
     public static List<Item> getFakeItemList() {
-        List<Item> list = new ArrayList<Item>();
-
+        List<Item> list = new ArrayList<>();
         Item item1 = new Item(1, "John", "Manger");
-        list.add(item1);
-
         Item item2 = new Item(2, "Tim", "Developer");
-        list.add(item2);
-
         Item item3 = new Item(3, "Jessica", "Marketing");
-        list.add(item3);
-
         Item item4 = new Item(4, "Larry", "CEO");
-        list.add(item4);
-
         Item item5 = new Item(5, "Kim", "Designer");
+        list.add(item1);
+        list.add(item2);
+        list.add(item3);
+        list.add(item4);
         list.add(item5);
 
         return list;
-
     }
 
 
+    public static ArrayList<SliderImage> getFakeSliderImagesList() {
+        ArrayList<SliderImage> imagesList = new ArrayList<>();
+        imagesList.add(new SliderImage("Football Field", IMG_URL_FOOTBALL, IMG_URL_FOOTBALL, IMG_URL_FOOTBALL, "2018-05-06"));
+        imagesList.add(new SliderImage("Stars At Night", IMG_URL_STARS, IMG_URL_STARS, IMG_URL_STARS, "2000-01-09"));
+        imagesList.add(new SliderImage("Best Band Ever", IMG_URL_QUEEN, IMG_URL_QUEEN, IMG_URL_QUEEN, "2014-12-04"));
+        imagesList.add(new SliderImage("Thunder Cat Meme", IMG_URL_CAT, IMG_URL_CAT, IMG_URL_CAT, "2020-02-20"));
+        return imagesList;
+    }
 }
