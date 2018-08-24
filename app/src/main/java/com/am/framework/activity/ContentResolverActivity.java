@@ -22,16 +22,15 @@ public class ContentResolverActivity extends BaseActivity {
     private final int VISIBILITY_SHOWN = 1;
 
     @BindView(R.id.toolbar)
-    Toolbar toolbar;
+    Toolbar mToolbar;
     @BindView(R.id.button_next)
-    Button nextBtn;
+    Button mNextBtn;
     @BindView(R.id.text_view_word)
     TextView mWordTextView;
     @BindView(R.id.text_view_definition)
     TextView mDefinitionTextView;
 
     private Cursor mFetchedTableData;
-
     //Used To Know if the Definition TextView is Visible or InVisible
     private int mDefinitionTextViewVisibilityCurrentState;
     //Used to Retrieve Data From Cursor
@@ -42,7 +41,7 @@ public class ContentResolverActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content_resolver);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
         showToolbarBackArrow();
 
         //Retrieve All The Words From The Content Provider Using The Content Resolver
@@ -71,7 +70,7 @@ public class ContentResolverActivity extends BaseActivity {
                 mFetchedTableData.moveToFirst();
             }
             mDefinitionTextView.setVisibility(View.INVISIBLE);
-            nextBtn.setText(getString(R.string.text_btn_show_definition));
+            mNextBtn.setText(getString(R.string.text_btn_show_definition));
 
             String word = mFetchedTableData.getString(mWordColumnIndex);
             String wordDefinition = mFetchedTableData.getString(mDefinitionColumnIndex);
@@ -86,7 +85,7 @@ public class ContentResolverActivity extends BaseActivity {
     private void showDefinition() {
         if (mFetchedTableData != null) {
             mDefinitionTextView.setVisibility(View.VISIBLE);
-            nextBtn.setText(getString(R.string.text_btn_fetch_next_word));
+            mNextBtn.setText(getString(R.string.text_btn_fetch_next_word));
             mDefinitionTextViewVisibilityCurrentState = VISIBILITY_SHOWN;
         }
     }

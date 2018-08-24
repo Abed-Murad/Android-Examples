@@ -76,6 +76,7 @@
     <string name="show_definition">Show Definition</string>
     <string name="text_btn_show_definition">Show Definition</string>
     <string name="text_btn_fetch_next_word">Fetch Next Word</string>
+    <string name="hint_fake_profile_info">Username: Abdallah Murad   \n\nEmail: Abdallah.Murad@mail.com   \n\nIdToken: 53435as4d35agasd4da5s6d4a5sd4as56as4d5  \n\nPhotoUrl:https://www.google.com/abdallah/profile.png</string>
 
 
 </resources>

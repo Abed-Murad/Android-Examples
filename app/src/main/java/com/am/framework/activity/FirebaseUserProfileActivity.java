@@ -1,7 +1,6 @@
 package com.am.framework.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,21 +14,23 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.FirebaseUserMetadata;
 import com.twitter.sdk.android.core.TwitterCore;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FirebaseUserProfileActivity extends AppCompatActivity {
-    private static final String TAG = "TestMainActivityTAG";
-    FirebaseUser currentUser;
-    FirebaseAuth firebaseAuth;
-    @BindView(R.id.tv_test)
-    TextView tvTest;
-    @BindView(R.id.iv_test)
-    ImageView ivTest;
-    private GoogleSignInClient mGoogleSignInClientForApi;
+public class FirebaseUserProfileActivity extends BaseActivity {
+
+    private static final String TAG = FirebaseUserProfileActivity.class.getSimpleName();
+
+    @BindView(R.id.tv_user_info)
+    TextView mUserInfoTextView;
+    @BindView(R.id.iv_user_image)
+    ImageView userImageImageView;
+
+    private FirebaseUser mCurrentUser;
+    private FirebaseAuth mFirebaseAuth;
+    private GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,69 +38,57 @@ public class FirebaseUserProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_firebase_user_profile);
         ButterKnife.bind(this);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        if (currentUser == null) {
+        // Check if user is signed in (not-null) and update UI accordingly.
+        if (mCurrentUser == null) {
             FirebaseUserProfileActivity.this.finish();
+            Toast.makeText(this, "User is Not Signed in [Firebasse]", Toast.LENGTH_SHORT).show();
         } else {
-            tvTest.append("Username: " + currentUser.getDisplayName() + "\n\nEmail: " +
-                    currentUser.getEmail() + "\n\nIdToken: " +
-                    currentUser.getIdToken(true) + "\n\n"
-                    + "\n\nPhotoUrl: " + currentUser.getPhotoUrl()
-                    + "\n\nLastSignInTimestamp: " + currentUser.getMetadata().getLastSignInTimestamp());
+            mUserInfoTextView.append("Username: " + mCurrentUser.getDisplayName() + "\n\nEmail: " +
+                    mCurrentUser.getEmail() + "\n\nIdToken: " +
+                    mCurrentUser.getIdToken(true) + "\n\n"
+                    + "\n\nPhotoUrl: " + mCurrentUser.getPhotoUrl()
+                    + "\n\nLastSignInTimestamp: " + mCurrentUser.getMetadata().getLastSignInTimestamp());
 
-            Log.d(TAG, "UserName:" + currentUser.getDisplayName());
-            Log.d(TAG, "UserEmail:" + currentUser.getEmail());
-            Log.d(TAG, "UserToken:" + currentUser.getIdToken(true).toString());
-            Log.d(TAG, "PhotoUrl:" + currentUser.getPhotoUrl());
-            Log.d(TAG, "getProviderId:" + currentUser.getProviderId());
-            Log.d(TAG, "getUid:" + currentUser.getUid());
-            Log.d(TAG, "CreationTimestamp:" + currentUser.getMetadata().getCreationTimestamp());
-            Log.d(TAG, "LastSignInTimestamp:" + currentUser.getMetadata().getLastSignInTimestamp());
-            Glide.with(this).load(currentUser.getPhotoUrl()).into(ivTest);
+            Log.d(TAG, "Uid:" + mCurrentUser.getUid());
+            Log.d(TAG, "Email:" + mCurrentUser.getEmail());
+            Log.d(TAG, "Token:" + mCurrentUser.getIdToken(true).toString());
+            Log.d(TAG, "PhotoUrl:" + mCurrentUser.getPhotoUrl());
+            Log.d(TAG, "UserName:" + mCurrentUser.getDisplayName());
+            Log.d(TAG, "ProviderId:" + mCurrentUser.getProviderId());
+            Log.d(TAG, "CreationTimestamp:" + mCurrentUser.getMetadata().getCreationTimestamp());
+            Log.d(TAG, "LastSignInTimestamp:" + mCurrentUser.getMetadata().getLastSignInTimestamp());
+            Glide.with(this).load(mCurrentUser.getPhotoUrl()).into(userImageImageView);
         }
 
-        // [START config_signin]
-        // Configure Google Sign In
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        // [START Configure Google Sign In]
+        GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
-        // [END config_signin]
-        mGoogleSignInClientForApi = GoogleSignIn.getClient(this, gso);
-
-
-        FirebaseUserMetadata metadata = currentUser.getMetadata();
-        if (metadata != null) {
-            metadata.getCreationTimestamp();
-            metadata.getLastSignInTimestamp();
-        }
-
-
+        mGoogleSignInClient = GoogleSignIn.getClient(this, signInOptions);
+        // [END Configure Google Sign In]
     }
 
     //TODO: Add a condition to find the user provider and log out only form it
     @Override
     public void onBackPressed() {
-        firebaseAuth.signOut();
-        //Google
-        mGoogleSignInClientForApi.signOut().addOnCompleteListener(this,
-                task -> {
-                    Toast.makeText(this, "Signed Out", Toast.LENGTH_SHORT).show();
-                });
-
-        //Twitter
+        //Sign Out From Firebase
+        mFirebaseAuth.signOut();
+        //Sign Out From Google
+        mGoogleSignInClient.signOut().addOnCompleteListener(this,
+                task -> Toast.makeText(this, "Signed Out From Google",
+                        Toast.LENGTH_SHORT).show());
+        //Sign Out From Twitter
         TwitterCore.getInstance().getSessionManager().clearActiveSession();
-        //Facebook
+        //Sign Out From Facebook
         LoginManager.getInstance().logOut();
         super.onBackPressed();
-
     }
-
 }

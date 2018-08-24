@@ -15,24 +15,24 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class CustomToolbarActivity extends BaseActivity {
 
     @BindView(R.id.main_toolbar_avatar)
-    CircleImageView toolbarAvatarImageView;
+    CircleImageView mToolbarAvatarImageView;
     @BindView(R.id.main_toolbar_name)
-    TextView toolbarNameTextView;
+    TextView mToolbarNameTextView;
     @BindView(R.id.main_toolbar)
-    Toolbar toolbar;
+    Toolbar mToolbar;
 
-    View.OnClickListener onClickListener = (View v) -> Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
+    View.OnClickListener mOnClickListener = (View v) -> Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_toolbar);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
 
         hideToolbarTitle();
-        toolbarAvatarImageView.setOnClickListener(onClickListener);
-        toolbarNameTextView.setOnClickListener(onClickListener);
+        mToolbarAvatarImageView.setOnClickListener(mOnClickListener);
+        mToolbarNameTextView.setOnClickListener(mOnClickListener);
 
     }
 }
