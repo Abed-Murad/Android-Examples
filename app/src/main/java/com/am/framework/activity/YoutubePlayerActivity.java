@@ -1,17 +1,14 @@
 package com.am.framework.activity;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
 
 import com.am.framework.R;
 import com.am.framework.helper.FullScreenHelper;
-import com.pierfrancescosoffritti.androidyoutubeplayer.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.player.YouTubePlayerView;
 import com.pierfrancescosoffritti.androidyoutubeplayer.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.player.listeners.YouTubePlayerFullScreenListener;
-import com.pierfrancescosoffritti.androidyoutubeplayer.player.listeners.YouTubePlayerInitListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,40 +16,40 @@ import butterknife.ButterKnife;
 public class YoutubePlayerActivity extends BaseActivity {
 
     @BindView(R.id.youtube_player_view)
-    YouTubePlayerView youTubePlayerView;
+    YouTubePlayerView mYouTubePlayerView;
     @BindView(R.id.toolbar)
-    Toolbar toolbar;
+    Toolbar mToolbar;
     @BindView(R.id.fab)
     FloatingActionButton fab;
-    FullScreenHelper fullScreenHelper;
+
+    private FullScreenHelper fullScreenHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_youtube_player);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
         showToolbarBackArrow();
 
-        getLifecycle().addObserver(youTubePlayerView);
-        fullScreenHelper = new FullScreenHelper(this, toolbar, fab);
-        youTubePlayerView.initialize(new YouTubePlayerInitListener() {
+        getLifecycle().addObserver(mYouTubePlayerView);
+        //mToolbar , fab will be hidden and shown when FullScreen toggles
+        fullScreenHelper = new FullScreenHelper(this, mToolbar, fab);
+
+        mYouTubePlayerView.initialize(
+                initializedYouTubePlayer ->
+                        initializedYouTubePlayer.addListener(new AbstractYouTubePlayerListener() {
             @Override
-            public void onInitSuccess(@NonNull final YouTubePlayer initializedYouTubePlayer) {
-                initializedYouTubePlayer.addListener(new AbstractYouTubePlayerListener() {
-                    @Override
-                    public void onReady() {
-                        String videoId = "pS-gbqbVd8c";
-                        initializedYouTubePlayer.loadVideo(videoId, 0);
-                    }
-                });
+            public void onReady() {
+                String videoId = "pS-gbqbVd8c"; //Game of Thorns - Light of the Seven
+                initializedYouTubePlayer.loadVideo(videoId, 0);
             }
-        }, true);
-        youTubePlayerView.addFullScreenListener(new YouTubePlayerFullScreenListener() {
+        }), true);
+
+        mYouTubePlayerView.addFullScreenListener(new YouTubePlayerFullScreenListener() {
             @Override
             public void onYouTubePlayerEnterFullScreen() {
                 fullScreenHelper.enterFullScreen();
-
             }
 
             @Override
@@ -61,11 +58,4 @@ public class YoutubePlayerActivity extends BaseActivity {
             }
         });
     }
-
-
-
-
-
-
-
 }
