@@ -18,17 +18,17 @@ import butterknife.ButterKnife;
 public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.GuestViewHolder> {
 
     private Cursor mCursor;
-    private Context mContext;
+    private Context context;
 
     public GuestListAdapter(Context context) {
-        this.mContext = context;
+        this.context = context;
     }
 
     @NonNull
     @Override
     public GuestViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Get the RecyclerView item layout
-        LayoutInflater inflater = LayoutInflater.from(mContext);
+        LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.item_guest_list, parent, false);
         return new GuestViewHolder(view);
     }

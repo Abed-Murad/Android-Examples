@@ -41,24 +41,24 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
     private String mHeaderTitle;
     private String mFooterTitle;
 
+    private Context mContext;
+    private List<Item> mItemList;
+    private LayoutInflater mInflater;
+
     private OnHeaderClickListener mHeaderClickListener;
     private OnFooterClickListener mFooterClickListener;
     private OnItemClickListener mItemClickListener;
 
-    private Context mContext;
-    private List<Item> itemList;
-    private LayoutInflater inflater;
-
     public RecyclerViewAdapterSecond(Context context, String headerTitle, String footerTitle) {
         this.mContext = context;
-        this.itemList = new ArrayList<>();
+        this.mItemList = new ArrayList<>();
         this.mHeaderTitle = headerTitle;
         this.mFooterTitle = footerTitle;
-        this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     public void updateList(List<Item> modelList) {
-        this.itemList = modelList;
+        this.mItemList = modelList;
         notifyDataSetChanged();
 
     }
@@ -68,15 +68,15 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
 
         switch (viewType) {
             case TYPE_HEADER: {
-                View v = inflater.inflate(R.layout.item_recycler_header, parent, false);
+                View v = mInflater.inflate(R.layout.item_recycler_header, parent, false);
                 return new HeaderViewHolder(v);
             }
             case TYPE_FOOTER: {
-                View v = inflater.inflate(R.layout.item_recycler_footer, parent, false);
+                View v = mInflater.inflate(R.layout.item_recycler_footer, parent, false);
                 return new FooterViewHolder(v);
             }
             case TYPE_ITEM: {
-                View v = inflater.inflate(R.layout.item_recycler_list, parent, false);
+                View v = mInflater.inflate(R.layout.item_recycler_list, parent, false);
                 return new ViewHolder(v);
             }
         }
@@ -119,26 +119,26 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
     }
 
     private boolean isPositionFooter(int position) {
-        return position == itemList.size() + 1;
+        return position == mItemList.size() + 1;
     }
 
 
     @Override
     public int getItemCount() {
-        return itemList == null ? 2 : itemList.size() + 2;
+        return mItemList == null ? 2 : mItemList.size() + 2;
     }
 
     private Item getItem(int position) {
-        return itemList.get(position);
+        return mItemList.get(position);
     }
 
     public void addLast(Item item) {
-        itemList.add(item);
-        notifyItemInserted(itemList.size() - 1);
+        mItemList.add(item);
+        notifyItemInserted(mItemList.size() - 1);
     }
 
     public void addFirst(Item Item) {
-        itemList.add(0, Item);
+        mItemList.add(0, Item);
         notifyItemInserted(0);
 
     }
@@ -147,21 +147,21 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
         if (appendedItemList == null || appendedItemList.size() <= 0) {
             return;
         }
-        if (this.itemList == null) {
-            this.itemList = new ArrayList<>();
+        if (this.mItemList == null) {
+            this.mItemList = new ArrayList<>();
         }
-        this.itemList.addAll(appendedItemList);
+        this.mItemList.addAll(appendedItemList);
         notifyDataSetChanged();
     }
 
     public void searchFilter(List<Item> list, String search) {
-        this.itemList.clear();
+        this.mItemList.clear();
         if (search == null || search.isEmpty()) {
-            this.itemList.addAll(list);
+            this.mItemList.addAll(list);
         } else {
             for (Item item : list) {
                 if (item.getTitle().toLowerCase().contains(search.toLowerCase())) {
-                    this.itemList.add(item);
+                    this.mItemList.add(item);
                 }
             }
         }
@@ -170,10 +170,10 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
     }
 
     public void searchFilter(String search) {
-        this.itemList.clear();
-        for (Item item : itemList) {
+        this.mItemList.clear();
+        for (Item item : mItemList) {
             if (item.getTitle().toLowerCase().contains(search.toLowerCase())) {
-                this.itemList.add(item);
+                this.mItemList.add(item);
             }
         }
         notifyDataSetChanged();
@@ -181,7 +181,7 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
     }
 
     public List<Item> getDataSet() {
-        return this.itemList;
+        return this.mItemList;
     }
 
 
@@ -269,7 +269,7 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mItemClickListener.onItemClick(itemView, getAdapterPosition(), itemList.get(getAdapterPosition() - 1));
+                    mItemClickListener.onItemClick(itemView, getAdapterPosition(), mItemList.get(getAdapterPosition() - 1));
                 }
             });
         }

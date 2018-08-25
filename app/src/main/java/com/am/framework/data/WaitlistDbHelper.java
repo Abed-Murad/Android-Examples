@@ -8,6 +8,7 @@ import com.am.framework.data.WaitListContract.WaitListEntry;
 
 
 public class WaitlistDbHelper extends SQLiteOpenHelper {
+
     // The database name
     private static final String DATABASE_NAME = "waitlist.db";
 
@@ -23,12 +24,11 @@ public class WaitlistDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         // Create a table to hold waitlist data
-        final String SQL_CREATE_WAITLIST_TABLE = "CREATE TABLE " + WaitListContract.WaitListEntry.TABLE_NAME + " (" +
+        final String SQL_CREATE_WAITLIST_TABLE = "CREATE TABLE " + WaitListEntry.TABLE_NAME + " (" +
                 WaitListEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 WaitListEntry.COLUMN_GUEST_NAME + " TEXT NOT NULL, " +
                 WaitListEntry.COLUMN_PARTY_SIZE + " INTEGER NOT NULL, " +
-                WaitListContract.WaitListEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
-                "); ";
+                WaitListEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP" + "); ";
 
         sqLiteDatabase.execSQL(SQL_CREATE_WAITLIST_TABLE);
     }
@@ -39,7 +39,7 @@ public class WaitlistDbHelper extends SQLiteOpenHelper {
         // DATABASE_VERSION the table will be dropped.
         // In a production app, this method might be modified to ALTER the table
         // instead of dropping it, so that existing data is not deleted.
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + WaitListContract.WaitListEntry.TABLE_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + WaitListEntry.TABLE_NAME);
         onCreate(sqLiteDatabase);
     }
 }
