@@ -17,20 +17,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
 /**
  * A custom adapter to use with the RecyclerView widget.
  */
 
-
 /*
- *
  * TODO : Add The RecyclerView OnScroll Listener
  * TODO : Add The Search On The Toolbar
- *
- *
- *
- *
  * */
 public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -51,16 +44,10 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
 
     public RecyclerViewAdapterSecond(Context context, String headerTitle, String footerTitle) {
         this.mContext = context;
-        this.mItemList = new ArrayList<>();
         this.mHeaderTitle = headerTitle;
         this.mFooterTitle = footerTitle;
+        this.mItemList = new ArrayList<>();
         this.mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    }
-
-    public void updateList(List<Item> modelList) {
-        this.mItemList = modelList;
-        notifyDataSetChanged();
-
     }
 
     @Override
@@ -97,12 +84,9 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
             final Item item = getItem(position - 1);
             ViewHolder genericViewHolder = (ViewHolder) holder;
             genericViewHolder.bindData(item);
-
-
         }
     }
 
-    //    need to override this method
     @Override
     public int getItemViewType(int position) {
         if (isPositionHeader(position)) {
@@ -113,6 +97,10 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
         return TYPE_ITEM;
     }
 
+    @Override
+    public int getItemCount() {
+        return mItemList == null ? 2 : mItemList.size() + 2;
+    }
 
     private boolean isPositionHeader(int position) {
         return position == 0;
@@ -123,16 +111,16 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
     }
 
 
-    @Override
-    public int getItemCount() {
-        return mItemList == null ? 2 : mItemList.size() + 2;
+    public void updateList(List<Item> modelList) {
+        this.mItemList = modelList;
+        notifyDataSetChanged();
     }
 
     private Item getItem(int position) {
         return mItemList.get(position);
     }
 
-    public void addLast(Item item) {
+    public void add(Item item) {
         mItemList.add(item);
         notifyItemInserted(mItemList.size() - 1);
     }
@@ -166,7 +154,6 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
             }
         }
         notifyDataSetChanged();
-
     }
 
     public void searchFilter(String search) {
@@ -177,7 +164,6 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
             }
         }
         notifyDataSetChanged();
-
     }
 
     public List<Item> getDataSet() {
@@ -210,6 +196,7 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
     }
 
     class FooterViewHolder extends RecyclerView.ViewHolder {
+
         @BindView(R.id.txtFooter)
         TextView txtFooter;
 
@@ -220,20 +207,18 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     mFooterClickListener.onFooterClick(itemView, mFooterTitle);
                 }
             });
-
         }
 
         private void SetFooterData() {
             txtFooter.setText(mFooterTitle);
-
         }
     }
 
     class HeaderViewHolder extends RecyclerView.ViewHolder {
+
         @BindView(R.id.txt_header)
         TextView txtTitleHeader;
 
@@ -243,7 +228,6 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     mHeaderClickListener.onHeaderClick(itemView, mHeaderTitle);
                 }
             });
