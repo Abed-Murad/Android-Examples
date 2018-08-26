@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.am.framework">
 
-    <!--Allow Applications To Open Network Sockets-->
+    <!-- Allow Applications To Open Network Sockets -->
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!--Allow Applications To Access Information About Networks-->
+    <!-- Allow Applications To Access Information About Networks -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!--Permission For The DroidTermsExample.apk Content Provider-->
+    <!-- Permission For The DroidTermsExample.apk Content Provider -->
     <uses-permission android:name="com.example.udacity.droidtermsexample.TERMS_READ" />
 
     <application
@@ -26,6 +26,7 @@
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -53,7 +54,7 @@
             android:name=".activity.MaterialDrawerActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <!--ConfigChanges : used to Keep Up with The Changes like orientation without Losing unSaved Data-->
+        <!-- ConfigChanges : used to Keep Up with The Changes like orientation without Losing unSaved Data -->
         <activity
             android:name=".activity.YoutubePlayerActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
@@ -79,7 +80,7 @@
             android:label="@string/title_activity_sqlite"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.RecyclerViewActivity" />
-        <!--Uses A Custom Theme @style/AppTheme.Template.Base -->
+        <!-- Uses A Custom Theme @style/AppTheme.Template.Base -->
         <activity
             android:name=".activity.SecondRecyclerAdapterActivity"
             android:theme="@style/AppTheme.Template.Base" />
@@ -87,6 +88,7 @@
             android:name=".activity.ContentResolverActivity"
             android:label="@string/title_activity_content_resolver"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.MapsActivity"></activity>
     </application>
 
 </manifest>

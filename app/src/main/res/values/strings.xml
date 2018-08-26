@@ -82,6 +82,14 @@
     <string name="title_home">Home</string>
     <string name="title_settings">Settings</string>
     <string name="title_extra">Extra</string>
+    <string name="title_btn_content_provider">Content Provider</string>
+    <string name="title_btn_async_task_loader">AsyncTaskLoader</string>
+    <string name="title_btn_maps">Maps</string>
+    <string name="title_btn_maps_intent">Intent Map</string>
+
+
+    <string name="pref_location_default" translatable="false">Mountain View, CA 94043</string>
+
 
 
 </resources>

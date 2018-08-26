@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.am.framework.data.WaitListContract.WaitListEntry;
 
 
-public class WaitlistDbHelper extends SQLiteOpenHelper {
+public class WaitListDbHelper extends SQLiteOpenHelper {
 
     // The database name
     private static final String DATABASE_NAME = "waitlist.db";
@@ -16,7 +16,7 @@ public class WaitlistDbHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // Constructor
-    public WaitlistDbHelper(Context context) {
+    public WaitListDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
