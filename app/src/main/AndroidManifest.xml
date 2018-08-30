@@ -88,7 +88,8 @@
             android:name=".activity.ContentResolverActivity"
             android:label="@string/title_activity_content_resolver"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.MapsActivity"></activity>
+        <activity android:name=".activity.MapsActivity" />
+        <activity android:name=".activity.AsyncTaskLoaderActivity"></activity>
     </application>
 
 </manifest>
