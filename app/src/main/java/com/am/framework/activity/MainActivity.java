@@ -146,6 +146,11 @@ public class MainActivity extends AppCompatActivity {
         updateUI();
     }
 
+    /**
+     * This method is called after this activity has been paused or restarted.
+     * Often, this is after new data has been inserted through an AddTaskActivity,
+     * so this re-queries the database data for any changes.
+     */
     @Override
     protected void onResume() {
         super.onResume();
