@@ -143,6 +143,13 @@
             android:text="@string/title_btn_room"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn_background_services"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_background_services"
+            android:textAllCaps="false" />
+
 
     </LinearLayout>
 </ScrollView>

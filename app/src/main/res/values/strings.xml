@@ -90,6 +90,7 @@
 
     <string name="pref_location_default" translatable="false">Mountain View, CA 94043</string>
     <string name="title_btn_room">Room</string>
+    <string name="title_background_services">Background Services</string>
 
 
 </resources>
