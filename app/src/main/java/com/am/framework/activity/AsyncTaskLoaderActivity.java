@@ -80,7 +80,6 @@ public class AsyncTaskLoaderActivity extends AppCompatActivity implements Loader
             @Nullable
             @Override
             public String[] loadInBackground() {
-                URL url =
                 return new String[0];
             }
 
