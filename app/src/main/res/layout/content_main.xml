@@ -158,5 +158,13 @@
             android:textAllCaps="false" />
 
 
+        <Button
+            android:id="@+id/btn_jobs_scheduler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_jobs_scheduler"
+            android:textAllCaps="false" />
+
+
     </LinearLayout>
 </ScrollView>
