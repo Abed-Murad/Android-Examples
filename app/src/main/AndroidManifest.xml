@@ -20,6 +20,7 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
+        <!--launchMode="singleTop" Will ReLunch The Activity if it exists rather than creating a new one -->
         <activity
             android:name=".activity.SplashActivity"
             android:launchMode="singleTop"
