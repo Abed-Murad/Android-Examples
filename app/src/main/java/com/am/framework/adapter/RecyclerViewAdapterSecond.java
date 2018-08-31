@@ -196,7 +196,6 @@ public class RecyclerViewAdapterSecond extends RecyclerView.Adapter<RecyclerView
     }
 
     class FooterViewHolder extends RecyclerView.ViewHolder {
-
         @BindView(R.id.txtFooter)
         TextView txtFooter;
 

@@ -3,6 +3,8 @@ package com.am.framework.utill;
 public class CONST {
     //Youtube API
     public static final String YOUTUBE_API_KEY = "AIzaSyDDHTAP0cLsSt_ZV3CRZo3HYXlI5pxJlzY";
+    public final static String BASE_YOUTUBE_VID_URL = "http://www.youtube.com/watch?v=";
+
 
     //The Movies Database
     public static final String MDB_BASE_PATH = "https://api.themoviedb.org";
@@ -14,6 +16,7 @@ public class CONST {
     public static final String YENDEX_API_KEY = "trnsl.1.1.20171216T184548Z.4dbf620b106c8c65.8fb70dae9aac55f4ed24968b2891c490afa029b9";
     public static final String ENGLISH = "en";
     public static final String ARABIC = "ar";
+
 
 
 
