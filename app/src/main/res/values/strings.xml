@@ -92,7 +92,8 @@
     <string name="title_btn_room">Room</string>
     <string name="title_background_services">Background Services</string>
     <string name="title_notification">Notification</string>
-    <string name="btn_jobs_scheduler">Jobs Scheduler</string>
+    <string name="title_btn_jobs_scheduler">Jobs Scheduler</string>
+    <string name="title_btn_broadcast_receiver">Broadcast Receiver</string>
 
 
 </resources>
