@@ -150,6 +150,13 @@
             android:text="@string/title_background_services"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_notification"
+            android:textAllCaps="false" />
+
 
     </LinearLayout>
 </ScrollView>
