@@ -94,6 +94,7 @@
     <string name="title_notification">Notification</string>
     <string name="title_btn_jobs_scheduler">Jobs Scheduler</string>
     <string name="title_btn_broadcast_receiver">Broadcast Receiver</string>
+    <string name="title_btn_bottom_navigation_view">BottomNavigationView</string>
 
 
 </resources>
