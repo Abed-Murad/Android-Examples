@@ -2,21 +2,11 @@ package com.am.framework.helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
-import com.am.fansrepublic.adapter.recycler.expandable_recyclerview.Child;
-import com.am.fansrepublic.model.user_data.UserInfo;
 import com.am.framework.model.Item;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.SortedSet;
-import java.util.TreeSet;
-
 
 public class PrefHelper {
-
 
     private final static String PREF_NAME_KEY = "my_pref";
 
@@ -85,10 +75,12 @@ public class PrefHelper {
         editor.putString("token", token);
         editor.apply();
     }
+
     public void saveUserId(String userId) {
         editor.putString("user_id", userId);
         editor.apply();
     }
+
     public String getUserId() {
         return preferences.getString("user_id", "No User Id Found !");
     }
@@ -101,7 +93,5 @@ public class PrefHelper {
     public String getUserName() {
         return preferences.getString("user_name", "No User Name Found !");
     }
-
-
 
 }
