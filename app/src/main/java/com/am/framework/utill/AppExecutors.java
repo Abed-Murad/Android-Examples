@@ -30,7 +30,6 @@ import java.util.concurrent.Executors;
  * webservice requests).
  */
 public class AppExecutors {
-
     // For Singleton instantiation
     private static final Object LOCK = new Object();
     private static AppExecutors sInstance;

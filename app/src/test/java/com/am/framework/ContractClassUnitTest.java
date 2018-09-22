@@ -2,7 +2,7 @@ package com.am.framework;
 
 import android.provider.BaseColumns;
 
-import com.am.framework.data.WaitListContract;
+import com.am.framework.data.sqlite.WaitListContract;
 
 import org.junit.Test;
 

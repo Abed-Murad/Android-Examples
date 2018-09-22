@@ -1,4 +1,4 @@
-package com.am.framework.data;
+package com.am.framework.data.sqlite;
 
 import android.provider.BaseColumns;
 

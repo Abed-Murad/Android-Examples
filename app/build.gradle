@@ -24,7 +24,9 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    def lifecycle_version = "1.1.1"
+    def room_version = "1.1.1"
 
     //Support
     implementation 'com.android.support:appcompat-v7:27.1.1'
@@ -77,8 +79,17 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
+    //Room
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+
     // DroidTermsProvider Dependency
     implementation project(path: ':droidtermsprovider')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
 
 }
 apply plugin: 'com.google.gms.google-services'

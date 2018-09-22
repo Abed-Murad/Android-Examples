@@ -1,10 +1,10 @@
-package com.am.framework.data;
+package com.am.framework.data.sqlite;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.am.framework.data.WaitListContract.WaitListEntry;
+import com.am.framework.data.sqlite.WaitListContract.WaitListEntry;
 
 
 public class WaitListDbHelper extends SQLiteOpenHelper {

@@ -14,16 +14,16 @@ import android.widget.EditText;
 
 import com.am.framework.R;
 import com.am.framework.adapter.GuestListAdapter;
-import com.am.framework.data.WaitListDbHelper;
+import com.am.framework.data.sqlite.WaitListDbHelper;
 import com.am.framework.utill.FakeDataFactory;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static android.provider.BaseColumns._ID;
-import static com.am.framework.data.WaitListContract.WaitListEntry;
-import static com.am.framework.data.WaitListContract.WaitListEntry.COLUMN_TIMESTAMP;
-import static com.am.framework.data.WaitListContract.WaitListEntry.TABLE_NAME;
+import static com.am.framework.data.sqlite.WaitListContract.WaitListEntry;
+import static com.am.framework.data.sqlite.WaitListContract.WaitListEntry.COLUMN_TIMESTAMP;
+import static com.am.framework.data.sqlite.WaitListContract.WaitListEntry.TABLE_NAME;
 
 public class SQLiteActivity extends BaseActivity {
 

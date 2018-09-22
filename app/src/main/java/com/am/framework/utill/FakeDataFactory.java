@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.am.framework.data.WaitListContract;
+import com.am.framework.data.sqlite.WaitListContract;
 import com.am.framework.model.Item;
 import com.am.framework.model.SliderImage;
 

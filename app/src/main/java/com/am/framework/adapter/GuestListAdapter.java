@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.am.framework.R;
-import com.am.framework.data.WaitListContract;
+import com.am.framework.data.sqlite.WaitListContract;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

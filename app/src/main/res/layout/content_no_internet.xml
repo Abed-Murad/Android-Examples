@@ -28,7 +28,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/layout_margin_large"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_no_internet" />
+                app:srcCompat="@drawable/ic_notification" />
 
             <TextView
                 android:id="@+id/noInternetTextview"
