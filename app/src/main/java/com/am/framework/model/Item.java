@@ -5,6 +5,10 @@ public class Item {
     private String title;
     private String message;
 
+    public Item() {
+        //Empty Constrictor
+    }
+
     public Item(int id, String title, String message) {
         this.id = id;
         this.title = title;
