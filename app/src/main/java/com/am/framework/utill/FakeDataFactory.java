@@ -4,12 +4,16 @@ import android.content.ContentValues;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.am.framework.R;
 import com.am.framework.data.sqlite.WaitListContract;
+import com.am.framework.model.BoardingPassInfo;
 import com.am.framework.model.Item;
 import com.am.framework.model.SliderImage;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 // TODO (1) Add the factory pattern to this class
 public class FakeDataFactory {
