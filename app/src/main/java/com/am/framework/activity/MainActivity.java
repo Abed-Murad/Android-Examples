@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.btn_sqlite_activity,
             R.id.btn_recyclerview_activity,
             R.id.btn_content_resolver,
-            R.id.btn_maps})
+            R.id.btn_maps,
+            R.id.btn_data_binding})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_translate_activity:
