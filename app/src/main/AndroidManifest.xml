@@ -19,7 +19,7 @@
         android:label="@string/app_name"
         android:name=".utill.MyApplication"
         android:roundIcon="@drawable/ic_cheer_active"
-        android:supportsRtl="false"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl"
         tools:ignore="GoogleAppIndexingWarning">
