@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.am.framework.model.Item;
-import com.google.gson.Gson;
 
 public class PrefHelper {
 
@@ -13,11 +12,7 @@ public class PrefHelper {
     private static PrefHelper sInstance = null;
     private static SharedPreferences preferences;
     private static SharedPreferences.Editor editor;
-    private static Gson mGson;
 
-    public PrefHelper() {
-        mGson = new Gson();
-    }
 
     public static PrefHelper getInstance(Context context) {
         if (sInstance == null) {
