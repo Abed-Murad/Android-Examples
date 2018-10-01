@@ -10,7 +10,6 @@ import android.view.View;
 import com.am.framework.R;
 
 public class DataBindingActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

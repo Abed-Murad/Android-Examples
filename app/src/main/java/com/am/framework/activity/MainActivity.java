@@ -108,6 +108,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_maps:
                 startActivity(new Intent(MainActivity.this, MapsActivity.class));
                 break;
+            case R.id.btn_data_binding:
+                startActivity(new Intent(MainActivity.this, DataBindingActivity.class));
+                break;
         }
     }
 
@@ -120,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 new AuthUI.IdpConfig.EmailBuilder().build(),
                 new AuthUI.IdpConfig.TwitterBuilder().build()
 //              new AuthUI.IdpConfig.PhoneBuilder().build(),
-                );
+        );
 
         Intent intent = AuthUI.getInstance().createSignInIntentBuilder()
                 .setIsSmartLockEnabled(!BuildConfig.DEBUG, true)
