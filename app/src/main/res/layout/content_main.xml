@@ -112,6 +112,7 @@
         <Button
             android:id="@+id/btn_content_resolver"
             android:layout_width="match_parent"
+            android:background="@color/black_alpha_60"
             android:layout_height="wrap_content"
             android:text="@string/title_btn_content_resolver"
             android:textAllCaps="false" />
@@ -120,6 +121,7 @@
             android:id="@+id/btn_content_provider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/black_alpha_60"
             android:text="@string/title_btn_content_provider"
             android:textAllCaps="false" />
 
@@ -128,6 +130,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_btn_async_task_loader"
+            android:background="@color/black_alpha_60"
             android:textAllCaps="false" />
 
         <Button
@@ -139,6 +142,7 @@
         <Button
             android:id="@+id/btn_room"
             android:layout_width="match_parent"
+            android:background="@color/black_alpha_60"
             android:layout_height="wrap_content"
             android:text="@string/title_btn_room"
             android:textAllCaps="false" />
@@ -147,6 +151,7 @@
             android:id="@+id/btn_background_services"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/black_alpha_60"
             android:text="@string/title_background_services"
             android:textAllCaps="false" />
 
@@ -155,12 +160,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_notification"
+            android:background="@color/black_alpha_60"
             android:textAllCaps="false" />
 
 
         <Button
             android:id="@+id/btn_jobs_scheduler"
             android:layout_width="match_parent"
+            android:background="@color/black_alpha_60"
             android:layout_height="wrap_content"
             android:text="@string/title_btn_jobs_scheduler"
             android:textAllCaps="false" />
@@ -168,6 +175,7 @@
       <Button
             android:id="@+id/btn_broadcast_receiver"
             android:layout_width="match_parent"
+          android:background="@color/black_alpha_60"
             android:layout_height="wrap_content"
             android:text="@string/title_btn_broadcast_receiver"
             android:textAllCaps="false" />
@@ -177,6 +185,7 @@
             android:id="@+id/btn_bottom_navigation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+          android:background="@color/black_alpha_60"
             android:text="@string/title_btn_bottom_navigation_view"
             android:textAllCaps="false" />
 
