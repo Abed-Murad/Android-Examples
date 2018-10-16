@@ -216,5 +216,14 @@
             android:textAllCaps="false" />
 
 
+        <Button
+            android:id="@+id/btn_runtime_permissions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black_alpha_60"
+            android:text="@string/title_btn_runtime_permissions"
+            android:textAllCaps="false" />
+
+
     </LinearLayout>
 </ScrollView>
