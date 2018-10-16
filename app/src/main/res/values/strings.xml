@@ -124,7 +124,7 @@
     <string name="seat">24A</string>
     <string name="countDownFormat" >%1$02d:%2$02d</string>
     <string name="timeFormat">hh:mm a</string>
-
+    <string name="title_btn_Icepick">Icepick</string>
 
 
 </resources>
