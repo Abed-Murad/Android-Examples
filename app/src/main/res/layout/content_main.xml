@@ -15,6 +15,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <View style="@style/Divider" />
+
         <Button
             android:id="@+id/btn_translate_activity"
             android:layout_width="match_parent"
@@ -22,12 +24,17 @@
             android:text="@string/title_translator"
             android:textAllCaps="false" />
 
+        <View style="@style/Divider" />
+
+
         <Button
             android:id="@+id/btn_images_slider_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_show_images_slider"
             android:textAllCaps="false" />
+
+        <View style="@style/Divider" />
 
         <Button
             android:id="@+id/btn_Spanny"
@@ -112,8 +119,8 @@
         <Button
             android:id="@+id/btn_content_resolver"
             android:layout_width="match_parent"
-            android:background="@color/black_alpha_60"
             android:layout_height="wrap_content"
+            android:background="@color/black_alpha_60"
             android:text="@string/title_btn_content_resolver"
             android:textAllCaps="false" />
 
@@ -129,8 +136,8 @@
             android:id="@+id/btn_async_task_loader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_btn_async_task_loader"
             android:background="@color/black_alpha_60"
+            android:text="@string/title_btn_async_task_loader"
             android:textAllCaps="false" />
 
         <Button
@@ -139,11 +146,12 @@
             android:layout_height="wrap_content"
             android:text="@string/title_btn_maps"
             android:textAllCaps="false" />
+
         <Button
             android:id="@+id/btn_room"
             android:layout_width="match_parent"
-            android:background="@color/black_alpha_60"
             android:layout_height="wrap_content"
+            android:background="@color/black_alpha_60"
             android:text="@string/title_btn_room"
             android:textAllCaps="false" />
 
@@ -159,38 +167,38 @@
             android:id="@+id/btn_notification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_notification"
             android:background="@color/black_alpha_60"
+            android:text="@string/title_notification"
             android:textAllCaps="false" />
 
 
         <Button
             android:id="@+id/btn_jobs_scheduler"
             android:layout_width="match_parent"
-            android:background="@color/black_alpha_60"
             android:layout_height="wrap_content"
+            android:background="@color/black_alpha_60"
             android:text="@string/title_btn_jobs_scheduler"
             android:textAllCaps="false" />
 
-      <Button
+        <Button
             android:id="@+id/btn_broadcast_receiver"
             android:layout_width="match_parent"
-          android:background="@color/black_alpha_60"
             android:layout_height="wrap_content"
+            android:background="@color/black_alpha_60"
             android:text="@string/title_btn_broadcast_receiver"
             android:textAllCaps="false" />
 
 
-      <Button
+        <Button
             android:id="@+id/btn_bottom_navigation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-          android:background="@color/black_alpha_60"
+            android:background="@color/black_alpha_60"
             android:text="@string/title_btn_bottom_navigation_view"
             android:textAllCaps="false" />
 
 
-      <Button
+        <Button
             android:id="@+id/btn_data_binding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
