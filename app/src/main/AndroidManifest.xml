@@ -12,6 +12,13 @@
     <!-- Permission For The DroidTermsExample.apk Content Provider -->
     <uses-permission android:name="com.example.udacity.droidtermsexample.TERMS_READ" />
 
+
+    <!--if the device does not have this feature the app will not be installed -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+
     <!-- launchMode="singleTop" Will ReLunch The Activity if it exists rather than creating a new one -->
     <application
         android:allowBackup="true"
