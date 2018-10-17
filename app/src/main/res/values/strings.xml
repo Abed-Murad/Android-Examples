@@ -127,6 +127,7 @@
     <string name="title_btn_Icepick">Icepick</string>
     <string name="title_btn_runtime_permissions">Run Time Permissions</string>
     <string name="title_btn_schematic">Schematic</string>
+    <string name="title_btn_date_display_logic">Date Diplay Logic</string>
 
 
 </resources>

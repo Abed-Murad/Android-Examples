@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -43,6 +44,7 @@ public class SecondRecyclerAdapterActivity extends BaseActivity implements Swipe
 
     private RecyclerViewAdapterSecond mAdapter;
     private RecyclerViewScrollListener mScrollListener;
+    private LinearLayoutManager mLayoutManger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,10 +63,17 @@ public class SecondRecyclerAdapterActivity extends BaseActivity implements Swipe
         List<Item> itemList = FakeDataFactory.getFakeItemList();
         mAdapter = new RecyclerViewAdapterSecond(SecondRecyclerAdapterActivity.this,
                 "Header", "Footer");
+        mLayoutManger = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mAdapter.addAll(itemList);
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setLayoutManager(mLayoutManger);
         mRecyclerView.setAdapter(mAdapter);
+
+        // Add dividers
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(
+                mRecyclerView.getContext(),
+                mLayoutManger.getOrientation());
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
 
         mAdapter.SetOnItemClickListener((view, position, model) -> {
             //handle item click events here
