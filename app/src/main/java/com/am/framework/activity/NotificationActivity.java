@@ -12,6 +12,8 @@ import android.os.Bundle;
 import com.am.framework.R;
 import com.am.framework.databinding.ActivityNotificationBinding;
 
+import static android.app.Notification.EXTRA_NOTIFICATION_ID;
+
 public class NotificationActivity extends AppCompatActivity {
     private ActivityNotificationBinding mBinding;
     private NotificationManagerCompat notificationManager;
@@ -68,15 +70,19 @@ public class NotificationActivity extends AppCompatActivity {
 
 
     private void showNotificationWithBtn(Context context, String channelId) {
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, channelId)
-                .setSmallIcon(R.drawable.ic_notification)
-                .setContentTitle("Notification Title!")
-                .setContentText("Notification  Short Body !")
-                .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText("Much longer text that cannot fit one line Era, aonides, et nuptia. Ecce, historia!"))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(ID_SIMPLE_NOTIFICATION_EXTEND, mBuilder.build());
-    }
+        Intent snoozeIntent = new Intent(this, MyBroadcastReceiver.class);
+        snoozeIntent.setAction(ACTION_SNOOZE);
+        snoozeIntent.putExtra(EXTRA_NOTIFICATION_ID, 0);
+        PendingIntent snoozePendingIntent =
+                PendingIntent.getBroadcast(this, 0, snoozeIntent, 0);
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.notification_icon)
+                .setContentTitle("My notification")
+                .setContentText("Hello World!")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .addAction(R.drawable.ic_snooze, getString(R.string.snooze),
+                        snoozePendingIntent);    }
 
 }
