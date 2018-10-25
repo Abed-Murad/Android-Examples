@@ -15,6 +15,8 @@ import com.am.framework.databinding.ActivityNotificationBinding;
 public class NotificationActivity extends AppCompatActivity {
     private ActivityNotificationBinding mBinding;
     private NotificationManagerCompat notificationManager;
+    private final int ID_SIMPLE_NOTIFICATION = 10000;
+    private final int ID_SIMPLE_NOTIFICATION_EXTEND = 10001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,9 @@ public class NotificationActivity extends AppCompatActivity {
                 showSimpleNotification(NotificationActivity.this,
                         getString(R.string.notification_channel_name))
         );
+        mBinding.btnSimpleNotificationWithExtendedText.setOnClickListener(view ->
+                showSimpleNotificationWithExtendedText(NotificationActivity.this,
+                        getString(R.string.notification_channel_name)));
     }
 
 
@@ -37,8 +42,8 @@ public class NotificationActivity extends AppCompatActivity {
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, channelId)
                 .setSmallIcon(R.drawable.ic_notification)
-                .setContentTitle("My notification")
-                .setContentText("Hello World!")
+                .setContentTitle("Notification Title!")
+                .setContentText("Notification  Short Body !")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntent)
@@ -46,10 +51,10 @@ public class NotificationActivity extends AppCompatActivity {
 
 
         // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(10000, mBuilder.build());
+        notificationManager.notify(ID_SIMPLE_NOTIFICATION, mBuilder.build());
     }
 
-    private void showSimpleNotificationWithExtentedText(Context context, String channelId) {
+    private void showSimpleNotificationWithExtendedText(Context context, String channelId) {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, channelId)
                 .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle("Notification Title!")
@@ -57,7 +62,8 @@ public class NotificationActivity extends AppCompatActivity {
                 .setStyle(new NotificationCompat.BigTextStyle()
                         .bigText("Much longer text that cannot fit one line Era, aonides, et nuptia. Ecce, historia!"))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(ID_SIMPLE_NOTIFICATION_EXTEND, mBuilder.build());
     }
 
 }
