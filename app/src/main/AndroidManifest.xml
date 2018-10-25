@@ -102,7 +102,12 @@
             android:name=".activity.DataBindingActivity"
             android:label="@string/title_activity_data_binding"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.NotificationActivity"></activity>
+        <activity android:name=".activity.NotificationActivity" />
+
+
+        <receiver android:name=".broadcasts.MyBroadcastReceiver">
+
+        </receiver>
     </application>
 
 </manifest>
