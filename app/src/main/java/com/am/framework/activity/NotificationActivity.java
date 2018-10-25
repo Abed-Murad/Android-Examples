@@ -1,5 +1,6 @@
 package com.am.framework.activity;
 
+import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -43,6 +44,9 @@ public class NotificationActivity extends AppCompatActivity {
                         getString(R.string.notification_channel_name)));
         mBinding.btnNotificationWithProgressBar.setOnClickListener(view ->
                 showNotificationWithProgressBar(NotificationActivity.this,
+                        getString(R.string.notification_channel_name)));
+        mBinding.btnMessagingStyleNotifcation.setOnClickListener(view ->
+                showNotificationWithMessagingStyle(NotificationActivity.this,
                         getString(R.string.notification_channel_name)));
     }
 
@@ -127,5 +131,21 @@ public class NotificationActivity extends AppCompatActivity {
         notificationManager.notify(ID__NOTIFICATION_WITH_PROGRESS_BAR, mBuilder.build());
     }
 
-    pri
+
+    private void showNotificationWithMessagingStyle(Context context, String channelId) {
+
+        Notification mBuilder = new NotificationCompat.Builder(context, channelId)
+                .setSmallIcon(R.drawable.ic_notification)
+                .setStyle(new NotificationCompat.MessagingStyle("Me")
+                        .setConversationTitle("Team lunch")
+                        .addMessage("Hi", 1540506741, null) // Pass in null for user.
+                        .addMessage("What's up?", 1540506741, "Coworker")
+                        .addMessage("Not much", 1540506741, null)
+                        .addMessage("How about lunch?", 1540506741, "Coworker"))
+                .build();
+
+
+        notificationManager.notify(ID__NOTIFICATION_WITH_PROGRESS_BAR, mBuilder);
+    }
 }
+
