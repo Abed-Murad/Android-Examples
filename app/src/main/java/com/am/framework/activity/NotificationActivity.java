@@ -92,6 +92,7 @@ public class NotificationActivity extends AppCompatActivity {
                 .setContentIntent(snoozePendingIntent)
                 .addAction(R.drawable.ic_cheer_active, getString(R.string.snooze),
                         snoozePendingIntent);
+
         notificationManager.notify(ID_SIMPLE_NOTIFICATION_BTN, mBuilder.build());
 
     }

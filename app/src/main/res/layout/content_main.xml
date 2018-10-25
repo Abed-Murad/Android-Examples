@@ -167,7 +167,6 @@
             android:id="@+id/btn_notification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black_alpha_60"
             android:text="@string/title_notification"
             android:textAllCaps="false" />
 
