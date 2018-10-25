@@ -8,17 +8,21 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.am.framework.R;
+import com.am.framework.broadcasts.MyBroadcastReceiver;
 import com.am.framework.databinding.ActivityNotificationBinding;
 
 import static android.app.Notification.EXTRA_NOTIFICATION_ID;
 
 public class NotificationActivity extends AppCompatActivity {
+    private static final String ACTION_SNOOZE = "snooze_action";
     private ActivityNotificationBinding mBinding;
     private NotificationManagerCompat notificationManager;
     private final int ID_SIMPLE_NOTIFICATION = 10000;
     private final int ID_SIMPLE_NOTIFICATION_EXTEND = 10001;
+    private static final int ID_SIMPLE_NOTIFICATION_BTN = 10002;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,10 @@ public class NotificationActivity extends AppCompatActivity {
         );
         mBinding.btnSimpleNotificationWithExtendedText.setOnClickListener(view ->
                 showSimpleNotificationWithExtendedText(NotificationActivity.this,
+                        getString(R.string.notification_channel_name)));
+
+        mBinding.btnNotifcationButton.setOnClickListener(view ->
+                showNotificationWithBtn(NotificationActivity.this,
                         getString(R.string.notification_channel_name)));
     }
 
@@ -72,17 +80,20 @@ public class NotificationActivity extends AppCompatActivity {
     private void showNotificationWithBtn(Context context, String channelId) {
         Intent snoozeIntent = new Intent(this, MyBroadcastReceiver.class);
         snoozeIntent.setAction(ACTION_SNOOZE);
-        snoozeIntent.putExtra(EXTRA_NOTIFICATION_ID, 0);
+        snoozeIntent.putExtra(EXTRA_NOTIFICATION_ID, channelId);
         PendingIntent snoozePendingIntent =
                 PendingIntent.getBroadcast(this, 0, snoozeIntent, 0);
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.notification_icon)
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, channelId)
+                .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle("My notification")
                 .setContentText("Hello World!")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setContentIntent(pendingIntent)
-                .addAction(R.drawable.ic_snooze, getString(R.string.snooze),
-                        snoozePendingIntent);    }
+                .setContentIntent(snoozePendingIntent)
+                .addAction(R.drawable.ic_cheer_active, getString(R.string.snooze),
+                        snoozePendingIntent);
+        notificationManager.notify(ID_SIMPLE_NOTIFICATION_BTN, mBuilder.build());
+
+    }
 
 }

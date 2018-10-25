@@ -128,6 +128,7 @@
     <string name="title_btn_schematic">Schematic</string>
     <string name="title_btn_date_display_logic">Date Diplay Logic</string>
     <string name="notification_channel_name">hot_channel_005</string>
+    <string name="snooze">Snooze</string>
 
 
 </resources>
