@@ -61,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.btn_recyclerview_activity,
             R.id.btn_content_resolver,
             R.id.btn_maps,
-            R.id.btn_data_binding})
+            R.id.btn_data_binding,
+            R.id.btn_notification})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_translate_activity:
@@ -111,6 +112,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_data_binding:
                 startActivity(new Intent(MainActivity.this, DataBindingActivity.class));
+                break;
+            case  R.id.btn_notification:
+                startActivity(new Intent(MainActivity.this, NotificationActivity.class));
                 break;
         }
     }
