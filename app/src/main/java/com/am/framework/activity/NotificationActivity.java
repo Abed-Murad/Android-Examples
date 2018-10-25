@@ -22,7 +22,8 @@ public class NotificationActivity extends AppCompatActivity {
     private NotificationManagerCompat notificationManager;
     private final int ID_SIMPLE_NOTIFICATION = 10000;
     private final int ID_SIMPLE_NOTIFICATION_EXTEND = 10001;
-    private static final int ID_SIMPLE_NOTIFICATION_BTN = 10002;
+    private static final int ID_NOTIFICATION_BTN = 10002;
+    private static final int ID__NOTIFICATION_WITH_PROGRESS_BAR = 10003;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,9 @@ public class NotificationActivity extends AppCompatActivity {
 
         mBinding.btnNotifcationButton.setOnClickListener(view ->
                 showNotificationWithBtn(NotificationActivity.this,
+                        getString(R.string.notification_channel_name)));
+        mBinding.btnNotificationWithProgressBar.setOnClickListener(view ->
+                showNotificationWithProgressBar(NotificationActivity.this,
                         getString(R.string.notification_channel_name)));
     }
 
@@ -93,8 +97,33 @@ public class NotificationActivity extends AppCompatActivity {
                 .addAction(R.drawable.ic_cheer_active, getString(R.string.snooze),
                         snoozePendingIntent);
 
-        notificationManager.notify(ID_SIMPLE_NOTIFICATION_BTN, mBuilder.build());
+        notificationManager.notify(ID_NOTIFICATION_BTN, mBuilder.build());
 
     }
 
+    private void showNotificationWithProgressBar(Context context, String channelId) {
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, channelId);
+        mBuilder.setContentTitle("Picture Download")
+                .setContentText("Download in progress")
+                .setSmallIcon(R.drawable.ic_notification)
+                .setPriority(NotificationCompat.PRIORITY_LOW);
+
+        // Issue the initial notification with zero progress
+        int PROGRESS_MAX = 100;
+        int PROGRESS_CURRENT = 0;
+        mBuilder.setProgress(PROGRESS_MAX, PROGRESS_CURRENT, false);
+        notificationManager.notify(ID__NOTIFICATION_WITH_PROGRESS_BAR, mBuilder.build());
+
+        // Do the job here that tracks the progress.
+        // Usually, this should be in a
+        // worker thread
+        // To show progress, update PROGRESS_CURRENT and update the notification with:
+        // mBuilder.setProgress(PROGRESS_MAX, PROGRESS_CURRENT, false);
+        // notificationManager.notify(notificationId, mBuilder.build());
+
+        // When done, update the notification one more time to remove the progress bar
+//        mBuilder.setContentText("Download complete")
+//                .setProgress(0, 0, false);
+        notificationManager.notify(ID__NOTIFICATION_WITH_PROGRESS_BAR, mBuilder.build());
+    }
 }
