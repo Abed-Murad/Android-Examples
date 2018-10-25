@@ -101,7 +101,6 @@
     <string name="title_activity_data_binding">DataBindingActivity</string>
 
 
-
     <!--Flight Data Strings-->
     <string name="passenger_label">PASSENGER</string>
     <string name="passenger_name">MR. JAMES BOND</string>
@@ -122,7 +121,7 @@
     <string name="terminal">2</string>
     <string name="gate">58B</string>
     <string name="seat">24A</string>
-    <string name="countDownFormat" >%1$02d:%2$02d</string>
+    <string name="countDownFormat">%1$02d:%2$02d</string>
     <string name="timeFormat">hh:mm a</string>
     <string name="title_btn_Icepick">Icepick</string>
     <string name="title_btn_runtime_permissions">Run Time Permissions</string>

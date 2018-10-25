@@ -12,24 +12,22 @@
     <!-- Permission For The DroidTermsExample.apk Content Provider -->
     <uses-permission android:name="com.example.udacity.droidtermsexample.TERMS_READ" />
 
-
-    <!--if the device does not have this feature the app will not be installed -->
+    <!-- if the device does not have this feature the app will not be installed -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
 
-
     <!-- launchMode="singleTop" Will ReLunch The Activity if it exists rather than creating a new one -->
     <application
+        android:name=".utill.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_cheer_active"
         android:label="@string/app_name"
-        android:name=".utill.MyApplication"
         android:roundIcon="@drawable/ic_cheer_active"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:supportsRtl"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:supportsRtl">
         <activity
             android:name=".activity.SplashActivity"
             android:launchMode="singleTop"
@@ -103,7 +101,8 @@
         <activity
             android:name=".activity.DataBindingActivity"
             android:label="@string/title_activity_data_binding"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.NotificationActivity"></activity>
     </application>
 
 </manifest>

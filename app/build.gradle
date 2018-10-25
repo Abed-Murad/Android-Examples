@@ -98,7 +98,6 @@ dependencies {
     //multidex
     implementation 'com.android.support:multidex:1.0.3'
 
-
     // DroidTermsProvider Dependency
     implementation project(path: ':droidtermsprovider')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
