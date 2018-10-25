@@ -66,4 +66,17 @@ public class NotificationActivity extends AppCompatActivity {
         notificationManager.notify(ID_SIMPLE_NOTIFICATION_EXTEND, mBuilder.build());
     }
 
+
+    private void showNotificationWithBtn(Context context, String channelId) {
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, channelId)
+                .setSmallIcon(R.drawable.ic_notification)
+                .setContentTitle("Notification Title!")
+                .setContentText("Notification  Short Body !")
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText("Much longer text that cannot fit one line Era, aonides, et nuptia. Ecce, historia!"))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(ID_SIMPLE_NOTIFICATION_EXTEND, mBuilder.build());
+    }
+
 }
