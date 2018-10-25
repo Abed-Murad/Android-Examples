@@ -110,7 +110,7 @@ public class NotificationActivity extends AppCompatActivity {
 
         // Issue the initial notification with zero progress
         int PROGRESS_MAX = 100;
-        int PROGRESS_CURRENT = 0;
+        int PROGRESS_CURRENT = 70;
         mBuilder.setProgress(PROGRESS_MAX, PROGRESS_CURRENT, false);
         notificationManager.notify(ID__NOTIFICATION_WITH_PROGRESS_BAR, mBuilder.build());
 
@@ -126,4 +126,6 @@ public class NotificationActivity extends AppCompatActivity {
 //                .setProgress(0, 0, false);
         notificationManager.notify(ID__NOTIFICATION_WITH_PROGRESS_BAR, mBuilder.build());
     }
+
+    pri
 }
