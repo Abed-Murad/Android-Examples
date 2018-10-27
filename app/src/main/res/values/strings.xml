@@ -130,5 +130,8 @@
     <string name="notification_channel_name">hot_channel_005</string>
     <string name="snooze">Snooze</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

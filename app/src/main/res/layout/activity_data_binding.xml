@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -20,7 +21,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@{String.valueOf(item.id)}" />
+            android:text="@{String.valueOf(item.id)}"
+            tools:text="ID" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -28,7 +30,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@{item.title}" />
+            android:text="@{item.title}"
+            tools:text="Title" />
 
         <TextView
             android:id="@+id/tv_message"
@@ -36,14 +39,27 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@{item.message}" />
+            android:text="@{item.message}"
+            tools:text="Message" />
+
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_fragment_binding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_gravity="center"
-            android:text="Fragment Data Binding" />
+            android:gravity="center"
+            android:text="Fragment Data Binding"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_recycler_binding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Recycler Data Binding"
+            android:textAllCaps="false" />
+
     </LinearLayout>
 
 
