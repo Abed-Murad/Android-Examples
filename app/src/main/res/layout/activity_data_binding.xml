@@ -6,6 +6,10 @@
 
         <variable name="item" type="com.am.framework.model.Item" />
         <variable name="counter" type="int" />
+
+        <variable
+            name="handlers"
+            type="com.am.framework.activity.DataBindingActivity.MyClickHandlers" />
     </data>
 
     <LinearLayout
@@ -56,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
+            android:onClick="@{handlers::onButtonClicked}"
             android:text="Include Tag Binding"
             android:textAllCaps="false" />
 

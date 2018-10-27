@@ -1,5 +1,6 @@
 package com.am.framework.activity;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
@@ -32,11 +33,19 @@ public class DataBindingActivity extends AppCompatActivity implements FirstFragm
 //        mBinding = ActivityDataBindingBinding.inflate(getLayoutInflater());
         Item item = new Item(1001, "Grating", "Hello it's me ,Abed");
         mBinding.setItem(item);
+        mBinding.setHandlers(new MyClickHandlers());
         mBinding.setCounter(555);
     }
 
     @Override
     public void onFragmentInteraction(Uri uri) {
         Toast.makeText(this, "Back Button Pressed", Toast.LENGTH_SHORT).show();
+    }
+
+    public class MyClickHandlers{
+        public void onButtonClicked(View view) {
+            Toast.makeText(DataBindingActivity.this, "onButtonClicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(DataBindingActivity.this, IncludeTagDataBindingActivity.class));
+        }
     }
 }

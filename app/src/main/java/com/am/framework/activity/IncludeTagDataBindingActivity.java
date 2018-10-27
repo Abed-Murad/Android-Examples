@@ -14,7 +14,8 @@ import com.am.framework.databinding.ActivityIncludeTagDataBindingBinding;
 import com.am.framework.model.Item;
 
 public class IncludeTagDataBindingActivity extends AppCompatActivity {
-    ActivityIncludeTagDataBindingBinding mBinding;
+    private ActivityIncludeTagDataBindingBinding mBinding;
+    private MyClickHandlers handlers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,8 @@ public class IncludeTagDataBindingActivity extends AppCompatActivity {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_include_tag_data_binding);
         Item item = new Item(101, "<include> Binding", "Binding Message");
         mBinding.setItem(item);
+        handlers = new MyClickHandlers();
+        mBinding.content.setHandlers(handlers);
         setSupportActionBar(mBinding.toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -44,9 +47,9 @@ public class IncludeTagDataBindingActivity extends AppCompatActivity {
         // public void onButtonClickWithParam(View view, User user)
         // receives the user object bind from UI layout. In the layout,
         // the parameter can be passed using
-        public boolean onFabLongPressed(View view) {
+        public boolean onLongPressed(View view) {
             Toast.makeText(getApplicationContext(), "FAB Long Clicked !", Toast.LENGTH_SHORT).show();
-            return true;
+            return false;
         }
     }
 
