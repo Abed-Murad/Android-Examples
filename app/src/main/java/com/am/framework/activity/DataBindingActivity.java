@@ -10,14 +10,18 @@ import android.view.View;
 
 import com.am.framework.R;
 import com.am.framework.databinding.ActivityDataBindingBinding;
+import com.am.framework.model.Item;
 
 public class DataBindingActivity extends AppCompatActivity {
     ActivityDataBindingBinding mBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this , R.layout.activity_data_binding);
-        mBinding.tvName.setText("Abdallah Murad , But With Binding");
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_data_binding);
+        mBinding = ActivityDataBindingBinding.inflate(getLayoutInflater());
+        Item item = new Item(1001, "Grating", "Hello it's me ,Abed");
+        mBinding.setItem(item);
 
     }
 
