@@ -32,8 +32,7 @@ public class DataBindingActivity extends AppCompatActivity implements FirstFragm
 //        mBinding = ActivityDataBindingBinding.inflate(getLayoutInflater());
         Item item = new Item(1001, "Grating", "Hello it's me ,Abed");
         mBinding.setItem(item);
-
-
+        mBinding.setCounter(555);
     }
 
     @Override

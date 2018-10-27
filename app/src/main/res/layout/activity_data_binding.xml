@@ -4,9 +4,8 @@
 
     <data>
 
-        <variable
-            name="item"
-            type="com.am.framework.model.Item" />
+        <variable name="item" type="com.am.framework.model.Item" />
+        <variable name="counter" type="int" />
     </data>
 
     <LinearLayout
@@ -42,22 +41,22 @@
             android:text="@{item.message}"
             tools:text="Message" />
 
-        <Button
-            android:id="@+id/btn_fragment_binding"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/tv_counter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Fragment Data Binding"
-            android:textAllCaps="false" />
+            android:text="@{String.valueOf(counter)}"
+            tools:text="Message" />
 
         <Button
-            android:id="@+id/btn_recycler_binding"
+            android:id="@+id/btn_include_tag_binding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Recycler Data Binding"
+            android:text="Include Tag Binding"
             android:textAllCaps="false" />
 
         <fragment

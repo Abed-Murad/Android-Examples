@@ -132,6 +132,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_include_tag_data_binding">IncludeTagDataBindingActivity</string>
 
 
 </resources>
