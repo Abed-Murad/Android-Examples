@@ -1,6 +1,7 @@
 package com.am.framework.activity;
 
 import android.databinding.DataBindingUtil;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,12 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import com.am.framework.R;
 import com.am.framework.databinding.ActivityDataBindingBinding;
+import com.am.framework.fragment.FirstFragment;
 import com.am.framework.model.Item;
 
-public class DataBindingActivity extends AppCompatActivity {
+public class DataBindingActivity extends AppCompatActivity implements FirstFragment.OnFragmentInteractionListener {
     ActivityDataBindingBinding mBinding;
 
 
@@ -33,4 +36,8 @@ public class DataBindingActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+        Toast.makeText(this, "Back Button Pressed", Toast.LENGTH_SHORT).show();
+    }
 }

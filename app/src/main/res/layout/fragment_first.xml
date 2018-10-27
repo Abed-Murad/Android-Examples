@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-
     <data>
-
+        <import type="android.view.View" />
         <variable
             name="item"
             type="com.am.framework.model.Item" />
@@ -11,6 +10,7 @@
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:background="@color/black_alpha_60"
         android:layout_height="200dp"
         tools:context=".fragment.FirstFragment">
 
@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:textColor="@color/white"
             android:gravity="center"
             android:text="@{item.title}"
             tools:text="@string/hello_blank_fragment" />

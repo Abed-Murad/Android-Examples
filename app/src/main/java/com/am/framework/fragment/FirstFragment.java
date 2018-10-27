@@ -1,6 +1,7 @@
 package com.am.framework.fragment;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.am.framework.R;
+import com.am.framework.databinding.FragmentFirstBinding;
+import com.am.framework.model.Item;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,7 +41,7 @@ public class FirstFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param firstParam Parameter 1.
+     * @param firstParam  Parameter 1.
      * @param secondParam Parameter 2.
      * @return A new instance of fragment FirstFragment.
      */
@@ -62,10 +65,14 @@ public class FirstFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        FragmentFirstBinding mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_first,
+                container, false);
+        Item item = new Item(101, "First Fragment Title",
+                "Voxs unda, tanquam raptus era.Mineralis de teres ausus," +
+                        " convertam exsul!Eheu, primus homo!");
+        mBinding.setItem(item);
+        return mBinding.getRoot();
     }
 
     // TODO: Rename method, update argument and hook method into UI event
