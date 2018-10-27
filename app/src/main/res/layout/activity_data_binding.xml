@@ -60,6 +60,12 @@
             android:text="Recycler Data Binding"
             android:textAllCaps="false" />
 
+        <fragment
+            android:id="@+id/fragment_first_fragment"
+            android:name="com.am.framework.fragment.FirstFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_first" />
     </LinearLayout>
 
 
