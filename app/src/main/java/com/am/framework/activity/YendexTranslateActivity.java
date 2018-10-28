@@ -26,10 +26,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.am.framework.utill.CONST.ARABIC;
-import static com.am.framework.utill.CONST.ENGLISH;
-import static com.am.framework.utill.CONST.YENDEX_API_KEY;
-import static com.am.framework.utill.CONST.YENDEX_BASE_URL;
+import static com.am.framework.utils.CONST.ARABIC;
+import static com.am.framework.utils.CONST.ENGLISH;
+import static com.am.framework.utils.CONST.YENDEX_API_KEY;
+import static com.am.framework.utils.CONST.YENDEX_BASE_URL;
 
 //TODO : Change the Volley Request to Retrofit
 public class YendexTranslateActivity extends BaseActivity {

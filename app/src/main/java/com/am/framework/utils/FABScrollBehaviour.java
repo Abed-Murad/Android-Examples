@@ -1,4 +1,4 @@
-package com.am.framework.utill;
+package com.am.framework.utils;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

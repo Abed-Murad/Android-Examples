@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.am.framework.R;
 import com.am.framework.model.SliderImage;
-import com.am.framework.utill.FakeDataFactory;
+import com.am.framework.utils.FakeDataFactory;
 import com.am.framework.view.ImagesSliderDialogFragment;
 
 import java.util.ArrayList;

@@ -1,11 +1,11 @@
-package com.am.framework.utill;
+package com.am.framework.utils;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
-import static com.am.framework.utill.CONST.BASE_YOUTUBE_VID_URL;
+import static com.am.framework.utils.CONST.BASE_YOUTUBE_VID_URL;
 
 public class IntentsUtill {
 

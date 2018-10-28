@@ -15,7 +15,7 @@ import android.widget.EditText;
 import com.am.framework.R;
 import com.am.framework.adapter.GuestListAdapter;
 import com.am.framework.data.sqlite.WaitListDbHelper;
-import com.am.framework.utill.FakeDataFactory;
+import com.am.framework.utils.FakeDataFactory;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

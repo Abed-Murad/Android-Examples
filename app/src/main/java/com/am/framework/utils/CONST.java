@@ -1,4 +1,4 @@
-package com.am.framework.utill;
+package com.am.framework.utils;
 
 public class CONST {
     //Youtube API

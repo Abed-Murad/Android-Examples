@@ -13,16 +13,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.am.framework.R;
-import com.am.framework.utill.GlideApp;
+import com.am.framework.utils.GlideApp;
 import com.binaryfork.spanny.Spanny;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.am.framework.utill.FakeDataFactory.IMG_URL_CAT;
-import static com.am.framework.utill.FakeDataFactory.IMG_URL_QUEEN;
-import static com.am.framework.utill.FakeDataFactory.IMG_URL_STARS;
+import static com.am.framework.utils.FakeDataFactory.IMG_URL_CAT;
+import static com.am.framework.utils.FakeDataFactory.IMG_URL_QUEEN;
+import static com.am.framework.utils.FakeDataFactory.IMG_URL_STARS;
 
 //TODO : Find Another Way to Make ManyImageViewsActivity , E.g Multiple layouts with Visibility Manipulation
 public class ManyImageViewsActivity extends BaseActivity {

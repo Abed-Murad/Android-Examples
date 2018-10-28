@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.am.framework.utill;
+package com.am.framework.utils;
 
 import android.content.Context;
 import android.graphics.Color;

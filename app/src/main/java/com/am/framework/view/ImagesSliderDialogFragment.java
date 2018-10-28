@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.am.framework.R;
 import com.am.framework.model.SliderImage;
-import com.am.framework.utill.GlideApp;
+import com.am.framework.utils.GlideApp;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;

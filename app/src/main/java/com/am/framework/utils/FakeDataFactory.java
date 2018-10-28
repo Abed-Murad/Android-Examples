@@ -1,4 +1,4 @@
-package com.am.framework.utill;
+package com.am.framework.utils;
 
 import android.content.ContentValues;
 import android.database.SQLException;

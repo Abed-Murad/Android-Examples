@@ -1,4 +1,4 @@
-package com.am.framework.utill;
+package com.am.framework.utils;
 
 /*
  * Copyright (C) 2017 The Android Open Source Project

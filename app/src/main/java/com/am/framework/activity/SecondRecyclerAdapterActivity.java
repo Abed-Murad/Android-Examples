@@ -22,8 +22,8 @@ import android.widget.Toast;
 import com.am.framework.R;
 import com.am.framework.adapter.RecyclerViewAdapterSecond;
 import com.am.framework.model.Item;
-import com.am.framework.utill.FakeDataFactory;
-import com.am.framework.utill.RecyclerViewScrollListener;
+import com.am.framework.utils.FakeDataFactory;
+import com.am.framework.utils.RecyclerViewScrollListener;
 
 import java.util.ArrayList;
 import java.util.List;
