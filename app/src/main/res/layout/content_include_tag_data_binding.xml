@@ -21,11 +21,11 @@
         tools:context=".activity.IncludeTagDataBindingActivity"
         tools:showIn="@layout/activity_include_tag_data_binding">
 
-        <TextView
+        <Button
             android:id="@+id/btn_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{item.title}"
+            android:text="Press Long"
             android:onLongClick="@{handlers::onLongPressed}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -20,22 +20,13 @@ public class IncludeTagDataBindingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_include_tag_data_binding);
         Item item = new Item(101, "<include> Binding", "Binding Message");
         mBinding.setItem(item);
         handlers = new MyClickHandlers();
         mBinding.content.setHandlers(handlers);
+        mBinding.setHandlers(handlers);
         setSupportActionBar(mBinding.toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     public class MyClickHandlers {
@@ -48,7 +39,7 @@ public class IncludeTagDataBindingActivity extends AppCompatActivity {
         // receives the user object bind from UI layout. In the layout,
         // the parameter can be passed using
         public boolean onLongPressed(View view) {
-            Toast.makeText(getApplicationContext(), "FAB Long Clicked !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Long Click !", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
