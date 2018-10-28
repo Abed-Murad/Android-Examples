@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#673AB7</color>
-    <color name="colorPrimaryDark">#512DA8</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#222222</color>
+    <color name="colorPrimaryDark">#111111</color>
+    <color name="colorAccent">#fecb2f</color>
 
     <color name="red">#E82624</color>
 
@@ -19,6 +19,9 @@
 
     <color name="colorGood">#4CAF50</color>
     <color name="colorBad">#F44336</color>
+
+
+    <color name="profile_meta">#333</color>
 
 
 </resources>

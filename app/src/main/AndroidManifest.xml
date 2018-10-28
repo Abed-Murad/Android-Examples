@@ -104,12 +104,13 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.NotificationActivity" />
 
-        <receiver android:name=".broadcasts.MyBroadcastReceiver"></receiver>
+        <receiver android:name=".broadcasts.MyBroadcastReceiver" />
 
         <activity
             android:name=".activity.IncludeTagDataBindingActivity"
             android:label="@string/title_activity_include_tag_data_binding"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".RecyclerBindingActivity"></activity>
     </application>
 
 </manifest>
