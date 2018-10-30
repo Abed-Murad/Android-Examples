@@ -29,7 +29,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.MyViewHolder
 
     public PostsAdapter(List<Post> postList, PostsAdapterListener listener) {
         this.postList = postList;
-        this.listener = listener
+        this.listener = listener;
     }
 
     @NonNull

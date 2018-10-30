@@ -3,15 +3,15 @@
 
     <data>
 
-        <import type="info.androidhive.databinding.utils.BindingUtils" />
+        <import type="com.am.framework.utils.BindingUtils" />
 
         <variable
             name="user"
-            type="info.androidhive.databinding.model.User" />
+            type="com.am.framework.model.User" />
 
         <variable
             name="handlers"
-            type="info.androidhive.databinding.view.MainActivity.MyClickHandlers" />
+            type="com.am.framework.RecyclerBindingActivity.MyClickHandlers" />
     </data>
 
     <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -34,8 +34,8 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/activity_margin"
-                android:paddingTop="@dimen/activity_margin">
+                android:paddingTop="@dimen/activity_margin"
+                android:paddingBottom="@dimen/activity_margin">
 
                 <RelativeLayout
                     android:layout_width="@dimen/profile_image"
@@ -53,8 +53,8 @@
                     <android.support.design.widget.FloatingActionButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
                         android:onClick="@{handlers::onProfileFabClicked}"
                         android:src="@drawable/ic_add_white_24dp"
                         app:fabCustomSize="@dimen/fab_profile" />
@@ -89,8 +89,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/activity_margin"
                 android:layout_marginTop="@dimen/fab_margin"
+                android:layout_marginBottom="@dimen/activity_margin"
                 android:orientation="horizontal"
                 android:weightSum="3">
 

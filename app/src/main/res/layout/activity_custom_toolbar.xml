@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="46dp"
         android:layout_gravity="top"
-        android:background="@drawable/bg_toolbar_trans"
+        android:background="@drawable/bg_text_foreground_shadow"
         android:theme="@style/AppTheme.AppBarOverlay"
         app:elevation="0dp">
 
