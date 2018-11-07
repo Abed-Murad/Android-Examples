@@ -237,6 +237,13 @@
             android:background="@color/black_alpha_60"
             android:text="@string/title_btn_date_display_logic"
             android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn_exo_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black_alpha_60"
+            android:text="@string/title_btn_exo_player"
+            android:textAllCaps="false" />
 
 
     </LinearLayout>

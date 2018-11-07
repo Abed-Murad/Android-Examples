@@ -22,7 +22,7 @@ import android.widget.Toast;
 import com.am.framework.R;
 import com.am.framework.adapter.RecyclerViewAdapterSecond;
 import com.am.framework.model.Item;
-import com.am.framework.utils.FakeDataFactory;
+import com.am.framework.dummy.DummyDataFactory;
 import com.am.framework.utils.RecyclerViewScrollListener;
 
 import java.util.ArrayList;
@@ -60,7 +60,7 @@ public class SecondRecyclerAdapterActivity extends BaseActivity implements Swipe
     }
 
     private void setupAdapter() {
-        List<Item> itemList = FakeDataFactory.getFakeItemList();
+        List<Item> itemList = DummyDataFactory.getFakeItemList();
         mAdapter = new RecyclerViewAdapterSecond(SecondRecyclerAdapterActivity.this,
                 "Header", "Footer");
         mLayoutManger = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);

@@ -20,9 +20,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.am.framework.utils.FakeDataFactory.IMG_URL_CAT;
-import static com.am.framework.utils.FakeDataFactory.IMG_URL_QUEEN;
-import static com.am.framework.utils.FakeDataFactory.IMG_URL_STARS;
+import static com.am.framework.dummy.DummyDataFactory.IMG_URL_CAT;
+import static com.am.framework.dummy.DummyDataFactory.IMG_URL_QUEEN;
+import static com.am.framework.dummy.DummyDataFactory.IMG_URL_STARS;
 
 //TODO : Find Another Way to Make ManyImageViewsActivity , E.g Multiple layouts with Visibility Manipulation
 public class ManyImageViewsActivity extends BaseActivity {

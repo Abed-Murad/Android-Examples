@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.am.framework.R;
 import com.am.framework.model.SliderImage;
-import com.am.framework.utils.FakeDataFactory;
+import com.am.framework.dummy.DummyDataFactory;
 import com.am.framework.view.ImagesSliderDialogFragment;
 
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ public class ImagesSliderActivity extends BaseActivity {
     }
 
     private void showImageSlider() {
-        ArrayList<SliderImage> imagesList = FakeDataFactory.getFakeSliderImagesList();
+        ArrayList<SliderImage> imagesList = DummyDataFactory.getFakeSliderImagesList();
         Bundle bundle = new Bundle();
         bundle.putSerializable(IMAGES_LIST, imagesList);
         bundle.putInt(POSITION, 0);

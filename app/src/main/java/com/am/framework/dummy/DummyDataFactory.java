@@ -1,4 +1,4 @@
-package com.am.framework.utils;
+package com.am.framework.dummy;
 
 import android.content.ContentValues;
 import android.database.SQLException;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 // TODO (1) Add the factory pattern to this class
-public class FakeDataFactory {
+public class DummyDataFactory {
 
     //Dummy
     public static final String IMG_URL_FOOTBALL = "https://i.imgur.com/5H2WatB.jpg";

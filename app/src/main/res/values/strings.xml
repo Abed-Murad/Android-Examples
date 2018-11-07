@@ -141,8 +141,7 @@
     <string name="posts">POSTS</string>
     <string name="followers">FOLLOWERS</string>
     <string name="following">FOLLOWING</string>
-
-
+    <string name="title_btn_exo_player">Exo Player</string>
 
 
 </resources>

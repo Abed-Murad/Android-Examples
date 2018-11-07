@@ -18,6 +18,14 @@ public class CONST {
     public static final String ARABIC = "ar";
 
 
+    //Time in Milliseconds
+    private static final long MINUTE_MILLISECONDS = 1000 * 60;
+    private static final long HOUR_MILLISECONDS = MINUTE_MILLISECONDS * 60;
+    private static final long DAY_MILLISECONDS = HOUR_MILLISECONDS * 24;
+
+
+
+
 
 
 

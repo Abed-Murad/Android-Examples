@@ -15,7 +15,7 @@ import android.widget.EditText;
 import com.am.framework.R;
 import com.am.framework.adapter.GuestListAdapter;
 import com.am.framework.data.sqlite.WaitListDbHelper;
-import com.am.framework.utils.FakeDataFactory;
+import com.am.framework.dummy.DummyDataFactory;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,7 +58,7 @@ public class SQLiteActivity extends BaseActivity {
         WaitListDbHelper dbHelper = new WaitListDbHelper(this);
         mDatabase = dbHelper.getWritableDatabase();
         //create a list of fake guests And Insert Them to the Database
-        FakeDataFactory.insertFakeData(mDatabase);
+        DummyDataFactory.insertFakeData(mDatabase);
         // Get All Guests From The Database & Update The Adapter
         Cursor cursor = getAllGuests();
         mAdapter.swapCursor(cursor);
