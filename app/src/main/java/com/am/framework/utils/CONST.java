@@ -22,6 +22,7 @@ public class CONST {
     private static final long MINUTE_MILLISECONDS = 1000 * 60;
     private static final long HOUR_MILLISECONDS = MINUTE_MILLISECONDS * 60;
     private static final long DAY_MILLISECONDS = HOUR_MILLISECONDS * 24;
+    long timeNow = System.currentTimeMillis();
 
 
 
