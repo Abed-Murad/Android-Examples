@@ -1,9 +1,12 @@
-# Why ?
+# Android Examples 
 
+## Project Overview
+**Android Examples** is a collection of examples 
+
+# Why ?
 I always wanted a place to go to when ever i wanted an example of some code that i understand but forget about it, like an adapter for a recyclerview or the code for authentication, so i created this project to but all the use cases that i will ever need as an android developer, combined with best practices for codeing and project architecture and great documentation and comments.
 
 # This project includes exmples on :
-
 - Firebase Auth & FirebaseUi 
 - Facebook Auth SDK
 - Twitter Auth SDK
