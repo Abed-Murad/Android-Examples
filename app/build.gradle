@@ -96,8 +96,6 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:$room_version"
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
 
-    //multidex
-    implementation 'com.android.support:multidex:1.0.3'
 
     // DroidTermsProvider Dependency
     implementation project(path: ':droidtermsprovider')
