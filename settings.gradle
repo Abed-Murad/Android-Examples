@@ -1,1 +1,1 @@
-include ':app' , ':droidtermsprovider'
+include ':app' , ':myutil'

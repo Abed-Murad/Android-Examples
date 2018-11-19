@@ -100,7 +100,7 @@ dependencies {
 
 
     // DroidTermsProvider Dependency
-    implementation project(path: ':droidtermsprovider')
+    implementation project(path: ':myutil')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
 
