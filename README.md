@@ -1,10 +1,9 @@
 # Android Examples 
 
 ## Overview
-**Android Examples** is a collection of examples The app will consist of four modules.
--
--
--
+
+**Android-Examples** is a collection of examples The app will consist of four modules.
+
 
 ## Screenshots 
 
