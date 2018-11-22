@@ -10,7 +10,6 @@ public class MyUriUtil {
     public static void main(String[] args) {
         Uri uri = Uri.parse("http://example.com/foo/bar/42?param=true");
 
-
         getUriParts(uri);
     }
 
