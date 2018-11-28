@@ -19,6 +19,7 @@ I always wanted a place to go to when ever i wanted an example of some code that
 Soon ...
 
 ## Getting Started 
+Soon ..
 
 ## Contributing
 Soon ..
