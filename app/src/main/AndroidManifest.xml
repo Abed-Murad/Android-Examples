@@ -9,7 +9,7 @@
     <!-- Allow Applications To Access Information About Networks -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!-- Permission For The DroidTermsExample.apk Content Provider -->
+    <!-- Permission For The DroidTermsExample.apk ConSplashActivitytent Provider -->
     <uses-permission android:name="com.example.udacity.droidtermsexample.TERMS_READ" />
 
     <!-- if the device does not have this feature the app will not be installed -->

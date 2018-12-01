@@ -134,18 +134,18 @@ public class NotificationActivity extends AppCompatActivity {
 
     private void showNotificationWithMessagingStyle(Context context, String channelId) {
 
-        Notification mBuilder = new NotificationCompat.Builder(context, channelId)
-                .setSmallIcon(R.drawable.ic_notification)
-                .setStyle(new NotificationCompat.MessagingStyle("Me")
-                        .setConversationTitle("Team lunch")
-                        .addMessage("Hi", 1540506741, null) // Pass in null for user.
-                        .addMessage("What's up?", 1540506741, "Coworker")
-                        .addMessage("Not much", 1540506741, null)
-                        .addMessage("How about lunch?", 1540506741, "Coworker"))
-                .build();
-
-
-        notificationManager.notify(ID__NOTIFICATION_WITH_PROGRESS_BAR, mBuilder);
+//        Notification mBuilder = new NotificationCompat.Builder(context, channelId)
+//                .setSmallIcon(R.drawable.ic_notification)
+//                .setStyle(new NotificationCompat.MessagingStyle("Me")
+//                        .setConversationTitle("Team lunch")
+//                        .addMessage("Hi", 1540506741, null) // Pass in null for user.
+//                        .addMessage("What's up?", 1540506741, "Coworker")
+//                        .addMessage("Not much", 1540506741, null)
+//                        .addMessage("How about lunch?", 1540506741, "Coworker"))
+//                .build();
+//
+//
+//        notificationManager.notify(ID__NOTIFICATION_WITH_PROGRESS_BAR, mBuilder);
     }
 }
 
