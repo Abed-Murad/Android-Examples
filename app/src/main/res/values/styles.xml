@@ -30,8 +30,7 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
-    //Splash Activity Theme
-
+    <!--Splash Activity Theme-->
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/background_splash</item>
         <item name="android:statusBarColor">@android:color/transparent</item>

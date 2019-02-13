@@ -1,6 +1,7 @@
 package com.am.framework.utils;
 
-import android.support.multidex.MultiDexApplication;
 
-public class MyApplication extends MultiDexApplication {
+import android.app.Application;
+
+public class MyApplication extends Application {
 }
